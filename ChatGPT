@@ -1,0 +1,3 @@
+The Analytics team pushed the new MCD changes to OneTrust without prior communication. These changes were meant for the test environment but were mistakenly deployed to production during a rushed reconsent fix.
+
+To prevent this in the future, we need a process for MCD deployments. For now, please create a story to validate the new MCD changes on iOS and Android and integrate this into our automation.
