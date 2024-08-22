@@ -1,3 +1,25 @@
-The Analytics team pushed the new MCD changes to OneTrust without prior communication. These changes were meant for the test environment but were mistakenly deployed to production during a rushed reconsent fix.
+Looking Back:
+Completed SDET certification.
+Tested various features including Adobe Launch SDK tag dictionary enhancement, OneTrust User Preference Screen UI enhancement, and Dark Mode implementation for OneTrust screens.
+Supported testing for Android Gradle Plugin update (Android 15), reconsent, MCD changes, and keyboard manager testing for iOS 15+ on mobile & iPad.
+Collaborated with pod developers and PO to resolve blockers, supported release regression, and handled API circuit breaker MNEDD testing in the PAT environment.
+Assisted teams with technical setups for Push Notifications using Postman and unblocked off-shore resources by investigating testing tickets.
+Completed Jira to JTMF user story integration for platform performance.
+Shadowed Platform Ops POD process alongside Randeep.
+What didn't go as expected?
 
-To prevent this in the future, we need a process for MCD deployments. For now, please create a story to validate the new MCD changes on iOS and Android and integrate this into our automation.
+Faced delays in testing the iOS Keyboard Manager due to unforeseen compatibility issues with certain iPad models.
+Encountered challenges in the reconsent feature's integration with MCD, causing additional troubleshooting and coordination with the development team.
+Progress on Platform Ops POD shadowing was slower than anticipated due to conflicting priorities and workload.
+Looking Forward:
+Focus on testing Kill Switch feature enhancement.
+Continue iOS Keyboard Manager implementation testing.
+Further collaboration with teams on resolving any emerging blockers.
+Develop expertise in Platform Ops processes and support cross-team efforts.
+Performance:
+Priority: Ensure successful testing and delivery of the Kill Switch feature.
+How: By creating a detailed test plan, coordinating closely with the development team, and addressing any blockers proactively.
+Priority: Complete testing for iOS Keyboard Manager on multiple iOS devices.
+How: Focus on resolving the compatibility issues, expanding test coverage, and leveraging automated testing where possible.
+Priority: Support regression and release processes across teams to maintain high-quality product releases.
+How: Provide ongoing testing support, regression test planning, and collaboration with team leads.
