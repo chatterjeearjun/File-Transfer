@@ -1,31 +1,32 @@
-Career:
-Focus on expanding knowledge in platform operations and mobile testing automation for iOS and Android platforms.
-Actively seeking opportunities in Web/API automation to leverage my 6-7 years of experience in that domain, as I haven’t been involved in web automation since joining the mobile team.
-Aligned with my career development plan to transition towards a technical leadership role by gaining expertise in both web and mobile automation.
-Need support in finding web automation opportunities within the organization and resources to enhance my automation skills.
+Hi
 
-Looking Back:
-Completed SDET certification.
-Tested various features including Adobe Launch SDK tag dictionary enhancement, OneTrust User Preference Screen UI enhancement, and Dark Mode implementation for OneTrust screens.
-Supported testing for Android Gradle Plugin update (Android 15), reconsent, MCD changes, and keyboard manager testing for iOS 15+ on mobile & iPad.
-Collaborated with pod developers and PO to resolve blockers, supported release regression, and handled API circuit breaker MNEDD testing in the PAT environment.
-Assisted teams with technical setups for Push Notifications using Postman and unblocked off-shore resources by investigating testing tickets.
-Completed Jira to JTMF user story integration for platform performance.
-Shadowed Platform Ops POD process alongside Randeep.
-What didn't go as expected?
+Thank you for the feedback. I’d like to address each of the points raised:
 
-Faced delays in testing the iOS Keyboard Manager due to unforeseen compatibility issues with certain iPad models.
-Encountered challenges in the reconsent feature's integration with MCD, causing additional troubleshooting and coordination with the development team.
-Progress on Platform Ops POD shadowing was slower than anticipated due to conflicting priorities and workload.
-Looking Forward:
-Focus on testing Kill Switch feature enhancement.
-Continue iOS Keyboard Manager implementation testing.
-Further collaboration with teams on resolving any emerging blockers.
-Develop expertise in Platform Ops processes and support cross-team efforts.
-Performance:
-Priority: Ensure successful testing and delivery of the Kill Switch feature.
-How: By creating a detailed test plan, coordinating closely with the development team, and addressing any blockers proactively.
-Priority: Complete testing for iOS Keyboard Manager on multiple iOS devices.
-How: Focus on resolving the compatibility issues, expanding test coverage, and leveraging automated testing where possible.
-Priority: Support regression and release processes across teams to maintain high-quality product releases.
-How: Provide ongoing testing support, regression test planning, and collaboration with team leads.
+1. **Automation Contributions:**  
+   I’ve mentioned this before, but officially reiterating: I was assigned an API automation task on December 13th, 2023, and immediately requested repository access from Charanjit Singh, the Automation Lead. Despite multiple follow-ups, including from your side, I only got access on January 15th, 2024, and raised my PR on February 1st. No KT or documents were provided for setting up the system for automation, and I still haven’t received a Mac system to run the automation suite locally. Nevertheless, I completed the task and received commendable feedback from Eric. Given the process bottlenecks, I was distanced from the Mobile automation team. Since then, I’ve focused on my POD work, which also impacted my interest in automation.
+
+2. **Reproducing Production Defects:**  
+   I have not received any negative feedback from Randeep regarding my responsibilities. I’ve been working collaboratively and ensuring that no defects from my POD were reported during the release process. I’ve always taken full ownership of the quality of work delivered from my POD, and I believe the results speak for themselves.
+
+3. **OS Coverage Testing and Android Gradle Plugin Update:**  
+   This point is incorrect. The feature came after the Q4 PI planning (on July 17th) and was added to our scope on July 29th. I received the build from the dev team on July 30th, and after investigation, found that a Windows machine couldn’t support the 16KB page size emulator, blocking the automation regression run. I flagged this as a blocker on August 2nd. This EPIC was assigned to the Release Regression Team, not at the POD level, and you were kept informed from the beginning. We can’t always resolve all dependencies in advance, and I had already communicated this to Randeep, who should have escalated the issue to you.
+
+4. **Knowledge Sharing and Dependency:**  
+   This point is incorrect. I received the request from the release team and set up the push notification system on my own machine, purely out of personal interest. Since then, I’ve supported the release team on multiple occasions. Ideally, the POD team should ensure knowledge transfer to reduce dependency. I independently resolved the dependency with the UMP team, and this effort should be acknowledged rather than discouraged.
+
+5. **Platform Performance Tasks:**  
+   I have been actively supporting Saranya, as I mentioned in our previous 1:1 discussions, resolving bottlenecks from Offshore to ensure she works smoothly. I’ve always been encouraged to investigate offshore issues and resolve them myself. Going forward, I will not be taking responsibility for resolving these issues, so she can figure them out independently.
+
+6. **Release Regression Activities:**  
+   Out of the four tests assigned to me, I blocked two. One was due to missing Charles rewrite information, and the other was newly added, for which we received KT from the POD team today. Additionally, I helped Saranya with her test cases, as she was blocked with Charles issues. Going forward, I suggest that KT sessions for new stories should be planned before the release date to avoid last-minute delays.
+
+I am sharing this because despite delivering quality work with zero issues reported from my side, I’ve received feedback that I find irrelevant and disconnected from the actual work completed. This ties back to our earlier conversation, where Mahnaz mentioned that you and Randeep had raised concerns about my performance, particularly around collaboration. I don’t see how this reflects my contributions and, instead of creating such concerns, it seems to result in unnecessary repercussions.
+
+Furthermore, I want to emphasize that I am **not comfortable with more performance improvement discussions and check-ins for this year**. These are affecting my productivity and causing significant mental stress. At this point, I do not want to take on any additional responsibilities or have to meet daily targets, as it’s becoming overwhelming.
+
+If there are other opportunities in TD, I’d be happy to explore them. However, if this cannot be resolved, I will have to resign in order to protect myself from further mental harassment.
+
+I would greatly appreciate your understanding and support in this matter.
+
+Best regards,  
+[Your Name]
