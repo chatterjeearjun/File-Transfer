@@ -1,32 +1,17 @@
-Hi
+Subject: Resignation from Associate Quality Engineer Position
 
-Thank you for the feedback. I’d like to address each of the points raised:
+Dear Lijo,
 
-1. **Automation Contributions:**  
-   I’ve mentioned this before, but officially reiterating: I was assigned an API automation task on December 13th, 2023, and immediately requested repository access from Charanjit Singh, the Automation Lead. Despite multiple follow-ups, including from your side, I only got access on January 15th, 2024, and raised my PR on February 1st. No KT or documents were provided for setting up the system for automation, and I still haven’t received a Mac system to run the automation suite locally. Nevertheless, I completed the task and received commendable feedback from Eric. Given the process bottlenecks, I was distanced from the Mobile automation team. Since then, I’ve focused on my POD work, which also impacted my interest in automation.
+I am writing to formally submit my resignation from my role as Associate Quality Engineer at TD Bank, effective September 16th, 2024. Unfortunately, I have experienced significant distress and mental strain due to micromanagement practices, particularly from Mahnaz, whose actions have involved targeting me with misleading and inaccurate assessments of my performance. Despite my best efforts, these assessments do not align with my actual contributions, and I have not agreed with the performance objectives or career goals set for me.
 
-2. **Reproducing Production Defects:**  
-   I have not received any negative feedback from Randeep regarding my responsibilities. I’ve been working collaboratively and ensuring that no defects from my POD were reported during the release process. I’ve always taken full ownership of the quality of work delivered from my POD, and I believe the results speak for themselves.
+It seems like lower-level employees have no rights to speak up about unfair practices and are constantly threatened, as if targeting people is a one-way process. There is no reverse feedback mechanism in place to address these concerns. This has not only harmed my productivity but has also negatively impacted my health. Fighting this has caused an increase in my heartbeat and affected the health of my unborn child. I cannot continue to fight anymore.
 
-3. **OS Coverage Testing and Android Gradle Plugin Update:**  
-   This point is incorrect. The feature came after the Q4 PI planning (on July 17th) and was added to our scope on July 29th. I received the build from the dev team on July 30th, and after investigation, found that a Windows machine couldn’t support the 16KB page size emulator, blocking the automation regression run. I flagged this as a blocker on August 2nd. This EPIC was assigned to the Release Regression Team, not at the POD level, and you were kept informed from the beginning. We can’t always resolve all dependencies in advance, and I had already communicated this to Randeep, who should have escalated the issue to you.
+Moreover, the increased workload has become unmanageable. I am now responsible for Platform Performance work, extra Release Regression work, and additional Platform Ops POD work—without any prior consultation. These additional tasks have been imposed on me and unfairly added to my targets without any consideration of my capacity or well-being.
 
-4. **Knowledge Sharing and Dependency:**  
-   This point is incorrect. I received the request from the release team and set up the push notification system on my own machine, purely out of personal interest. Since then, I’ve supported the release team on multiple occasions. Ideally, the POD team should ensure knowledge transfer to reduce dependency. I independently resolved the dependency with the UMP team, and this effort should be acknowledged rather than discouraged.
+During my pregnancy, the workload has continued to increase, and I have raised concerns about bottlenecks and management issues within the mobile QA team on several occasions, including on August 30th, 2024. Additionally, I highlighted the personal biases I’ve experienced from Mahnaz during our discussions on July 10th, 2024. Despite receiving supportive feedback in my 1:1s with you, where I was only advised to act more proactively across teams, Mahnaz’s feedback has consistently been negative, though it is unclear where these claims originated from.
 
-5. **Platform Performance Tasks:**  
-   I have been actively supporting Saranya, as I mentioned in our previous 1:1 discussions, resolving bottlenecks from Offshore to ensure she works smoothly. I’ve always been encouraged to investigate offshore issues and resolve them myself. Going forward, I will not be taking responsibility for resolving these issues, so she can figure them out independently.
+Laura, thank you for your support in approving my WFH requests. As I feared earlier, despite putting in 100% effort and delivering work with no quality gaps, I have been unfairly targeted in my performance discussions. In my 1:1 with Lijo, the only feedback I received was to be more proactive, not just in my POD but across other teams as well. It remains unclear how Mahnaz received vague negative feedback and from whom. I cannot change the way the QA Mobile team operates, and I am now overwhelmed with the growing workload and daily targets beyond my POD responsibilities. I simply cannot manage this any longer.
 
-6. **Release Regression Activities:**  
-   Out of the four tests assigned to me, I blocked two. One was due to missing Charles rewrite information, and the other was newly added, for which we received KT from the POD team today. Additionally, I helped Saranya with her test cases, as she was blocked with Charles issues. Going forward, I suggest that KT sessions for new stories should be planned before the release date to avoid last-minute delays.
+I kindly request that my last working day be confirmed as September 16th, 2024.
 
-I am sharing this because despite delivering quality work with zero issues reported from my side, I’ve received feedback that I find irrelevant and disconnected from the actual work completed. This ties back to our earlier conversation, where Mahnaz mentioned that you and Randeep had raised concerns about my performance, particularly around collaboration. I don’t see how this reflects my contributions and, instead of creating such concerns, it seems to result in unnecessary repercussions.
-
-Furthermore, I want to emphasize that I am **not comfortable with more performance improvement discussions and check-ins for this year**. These are affecting my productivity and causing significant mental stress. At this point, I do not want to take on any additional responsibilities or have to meet daily targets, as it’s becoming overwhelming.
-
-If there are other opportunities in TD, I’d be happy to explore them. However, if this cannot be resolved, I will have to resign in order to protect myself from further mental harassment.
-
-I would greatly appreciate your understanding and support in this matter.
-
-Best regards,  
-[Your Name]
+Thank you for your understanding and support.
