@@ -1,1 +1,8 @@
+He is currently facing a certificate issue in his local environment for the Clinical Auth Service. The simplest solution would be to remove the feature flag and directly update the configuration for the Auth service. Considering the future projections, it seems reasonable to proceed without the feature flag to avoid being blocked by the certificate issue. Could you please confirm this exception, or should we seek additional support for him soon?
+
+
+
+
+
+
 
