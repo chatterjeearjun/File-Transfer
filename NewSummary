@@ -1,3 +1,13 @@
+Removing Toggle Key features from milestone 2 and 3 except for Humana.Clinical.Cgx.AuthUpdateUtility, which consumes ClinicalAuthorization
+Single branch deployment going forward, if any application team wants to integrate our changes it's their responsibility to merge from default branch as this is a platform level changes.
+Little to no support of roll back for the upcoming milestones not much option to run the old and new systems in parallel to ensure stability as the timeline is critical so any issues occurs we need to resolve it. 
+Difficulty in maintaining stakeholders about migration process, risk and timelines
+Establish realistic expactation regarding performace and potential downtimes during the migration
+Clarity on kind of data that has been stored in pioneer platform for data security and compliance(Data govonance team)
+no clarity on monitoring performace, errors, logs, matrics post migration tuning -- Onprem already hosted installed dynatrace switching, splunk
+Create runbook for any incident handling for post migration issues -- no need for runbook
+need information to traffic results to compare
+
 
 Our action item for cgx_faxservice is to merge the code into our branch, deploy it in INT, and inform the team to initiate another round of SIT.
 
