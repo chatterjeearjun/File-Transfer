@@ -1,3 +1,36 @@
+Slide 1: Hurdles for Pioneer Migration (Milestone 2 & 3)
+Toggle Key Features Update
+
+Excluding Humana.Clinical.Cgx.AuthUpdateUtility, other Toggle Key features removed from Milestones 2 and 3.
+Continues to consume ClinicalAuthorization.
+Single Branch Deployment
+
+Transition to a single branch deployment model.
+Application teams required to merge changes from the default branch independently as platform changes progress.
+Limited Rollback Support
+
+Minimal rollback options; parallel old-new system testing is restricted due to tight deadlines.
+Issues to be handled with immediate resolutions to maintain stability.
+Stakeholder Management
+
+Complexity in maintaining stakeholder communication on the migration process, risks, and critical timelines.
+Slide 2: Expectations and Preparations for Migration
+Setting Realistic Performance Expectations
+
+Transparent expectations around potential performance drops and downtimes during migration phases.
+Data Clarity for Compliance
+
+Identify data types within Pioneer for data security and compliance aligned with Data Governance requirements.
+Post-Migration Monitoring
+
+Limited insights on performance, error tracking, logs, and metrics post-migration due to Dynatrace and Splunk transitions.
+Incident Handling Runbook
+
+Prepare a runbook for incident management post-migration, specifying no rollback requirements for streamlined issue handling.
+Traffic Results and Benchmarking
+
+Collect necessary information to traffic and compare results, enabling accurate benchmarking post-migration.
+
 Removing Toggle Key features from milestone 2 and 3 except for Humana.Clinical.Cgx.AuthUpdateUtility, which consumes ClinicalAuthorization
 Single branch deployment going forward, if any application team wants to integrate our changes it's their responsibility to merge from default branch as this is a platform level changes.
 Little to no support of roll back for the upcoming milestones not much option to run the old and new systems in parallel to ensure stability as the timeline is critical so any issues occurs we need to resolve it. 
