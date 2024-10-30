@@ -2,7 +2,7 @@ Slide 1: Hurdles for Pioneer Migration (Milestone 2 & 3)
 Toggle Key Features Update
 
 Excluding Humana.Clinical.Cgx.AuthUpdateUtility, other Toggle Key features removed from Milestones 2 and 3.
-Continues to consume ClinicalAuthorization.
+Streamlined as config-only updates, reducing team overhead and accelerating the timeline.
 Single Branch Deployment
 
 Transition to a single branch deployment model.
