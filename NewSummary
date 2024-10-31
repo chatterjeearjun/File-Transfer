@@ -1,3 +1,15 @@
+For the Milestone 1 release, we are already significantly behind the regular release cycle, so we plan to fast-track deployment. 
+Our changes are isolated in a separate branch (not in the release branch). As part of the service deployment,
+we intend to execute the change order for the services on 15/11, which will establish the on-premises environment. 
+For the changes on the consuming apps side, we’re aiming for a scheduled release on 22/11, 
+where we will implement a switch in the consuming apps to toggle from the Pioneer to the on-prem solution.
+
+We have completed manual QA regression on our side, but we still need to wait for automated regression 
+and load test results to validate and compare. We are treating this as an Infrastructure Change Order (ICAB) 
+and would like to proceed on the mentioned dates. Your and the VP's approval is requested, 
+along with support from the SRE and DevOps teams for the release activities.
+
+
 I tried searching for the course by name or ID but couldn’t locate it. It seems it may need to be assigned to me for access. Could you please check on this?
 
 M1-CGXCareplan: Migration of CGX Careplan Pioneer to On-Premises Service
