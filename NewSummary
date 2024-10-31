@@ -1,3 +1,5 @@
+I tried searching for the course by name or ID but couldn’t locate it. It seems it may need to be assigned to me for access. Could you please check on this?
+
 M1-CGXCareplan: Migration of CGX Careplan Pioneer to On-Premises Service
 
 The CGX Careplan Pioneer service is scheduled for sunset in January, with no planned renewal. To ensure service continuity, we must migrate all infrastructure associated with Pioneer to an on-premises environment through a lift-and-shift approach. This migration will involve setting up the on-premises infrastructure, ensuring full functional validation post-migration, and confirming compliance with all security and performance standards.
