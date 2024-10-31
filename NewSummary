@@ -1,3 +1,6 @@
+
+We're fast-tracking the Milestone 1 release with isolated branch changes, aiming for deployment on 15/11 and app toggle on 22/11, pending ICAB approval and SRE/DevOps support
+
 For the Milestone 1 release, we are already significantly behind the regular release cycle, so we plan to fast-track deployment. 
 Our changes are isolated in a separate branch (not in the release branch). As part of the service deployment,
 we intend to execute the change order for the services on 15/11, which will establish the on-premises environment. 
