@@ -1,4 +1,11 @@
-M1-CGXCareplan-CGX Careplan pioneer to on Prem service migration
+M1-CGXCareplan: Migration of CGX Careplan Pioneer to On-Premises Service
+
+The CGX Careplan Pioneer service is scheduled for sunset in January, with no planned renewal. To ensure service continuity, we must migrate all infrastructure associated with Pioneer to an on-premises environment through a lift-and-shift approach. This migration will involve setting up the on-premises infrastructure, ensuring full functional validation post-migration, and confirming compliance with all security and performance standards.
+
+All components of the Pioneer service infrastructure are successfully migrated to the on-premises environment.
+Network settings, data storage, and other resources are configured to match the current setup.
+Functional validation is completed to confirm all features operate as expected in the on-premises setup.
+
 
 Hi Becky, it seems that both SitecoreService and SiteScope are no longer necessary. Since the Sitecore applications aren’t active, 
 the service account is also no longer needed. SiteScope monitoring was scheduled to sunset as early as 2021, 
