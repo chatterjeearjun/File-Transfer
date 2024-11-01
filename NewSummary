@@ -1,3 +1,18 @@
+Hi Shiva,
+
+We are planning to deploy seven applications: Letter Angular, Core API, Clinical Auth Service, CGX UI, Careplan UI, CGX Fileshare, and CGX API; along with six services: Letters, CGX Careplan, AUTH Validation, CGX Assessment, CGX Authorization, and CGX Fax Service.
+
+As part of our Milestone 1 plan, we’ve completed SIT functional testing (manual) for most of these in the QA3 environment. We’d like to ask for your support with automation test scenarios and recording results in QTest, mapped to individual stories.
+
+Could you please confirm the following:
+
+Is there a specific environment where we should deploy the code to run automated regression?
+Is there a particular branch or build required for deployment, or is deploying from the migration branch sufficient?
+How do we link QTest results to the individual stories?
+Approximately how long would it take to complete regression for these seven applications?
+Do we have any automated load testing setup for the six services?
+Thank you for your guidance!
+
 7 applications-
 Letter Angular
 Core API
