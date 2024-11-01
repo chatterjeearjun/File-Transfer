@@ -1,3 +1,22 @@
+SIT Functional Testing: Manual testing for SIT has been completed in both INT and QA3 environments.
+
+API Testing: Except for the CGX Assessment, no API testing has been conducted for the service migration. (Blocked due to pending JSON files from developers.)
+
+Letter Service Testing: 
+
+Functional testing of Letter Angular and Core API applications has been completed in INT.
+ Clinical Auth Service and CGX UI for the Letters service have been recently deployed to QA3, but testing has not yet occurred in INT.
+
+CGX Careplan Service: Careplan UI, Core API, and CGX Fileshare (pending in QA) have been validated in both INT and QA3. CGX Fileshare testing can be completed today if a developer becomes available.
+
+CGX Assessment Service: Testing of CGX UI for this service has been completed in both INT and QA.
+
+CGX Authorization Service: Testing of CGX API, CGX UI, and Clinical Auth Service has been completed in QA.
+
+Fax Service Testing: The CGX UI for Fax Service has recently been deployed in QA3, with no testing yet conducted in INT.
+
+Reporting: Currently, all applications for a given service are grouped together, with a consolidated QTest report available that combines all applications pointing to each respective service.
+
 SIT functional testing (Manual) has been done in INT & QA3.
 
 NO API testing other than CGXAssessment was done for the service migration.(Blocked/Need JSON from Developers) 
