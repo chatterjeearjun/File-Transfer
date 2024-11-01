@@ -1,3 +1,6 @@
+
+We have finalized all M1 stories. Could you please create test cases for them and attach the QTest results to each individual story? Thank you!
+
 Hi Team,
 
 Could you please work on the following consuming apps and services using the respective migration branch and verify if the SAST/DAST scan reports are generated:
