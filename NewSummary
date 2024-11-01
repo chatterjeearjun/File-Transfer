@@ -1,3 +1,19 @@
+SIT functional testing (Manual) has been done in INT & QA3.
+NO UAT or Staging enviroment.
+
+NO API testing other than Assesment was done for the services.(Need JSON from Developers) 
+Letters and Faxservice-> INT validation
+Remaining M1 
+Letter Angular, Core API function testing completed in INT,
+
+Clinical Auth Service, CGX UI these application recetly deployed in QA3, no testing done on INT.
+
+Careplan UI, Core API, CGX Fileshare(Pending in QA) all are validated in INT and QA3.If we get a dev then CGX Fileshare testing cn be completed today.
+CGX UI for assesment done in INT and QA
+CGX API,CGX UI,Clinical Auth Service done in QA
+
+CGX UI for fax service application recetly deployed in QA3, no testing done on INT.
+
 
 We're fast-tracking the Milestone 1 release with isolated branch changes, aiming for deployment on 15/11 and app toggle on 22/11, pending ICAB approval and SRE/DevOps support
 
