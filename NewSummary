@@ -1,3 +1,13 @@
+Hi Team,
+
+As mentioned, we are preparing to deploy seven applications—Letter Angular, Core API, Clinical Auth Service, CGX UI, Careplan UI, CGX Fileshare, and CGX API—and six services: Letters, CGX Careplan, AUTH Validation, CGX Assessment, CGX Authorization, and CGX Fax Service as part of our Milestone 1 plan.
+
+Considering the critical timeline and to avoid impacting the current release, we’ve decided to move our deployment to the week following the regular release date. Tentatively, we’re aiming for Services to be deployed in production on 15/11 and consuming applications on 22/11. We’ll proceed with an ICAB change order, and we’d like to confirm if we can deploy the services and dependent applications directly from the migration branch, separately from the release branch. If so, what would be the recommended approach for merging changes back from the migration branch to the main branch?
+
+Additionally, could you please confirm the process for toggling LaunchDarkly flags in production? Specifically, do we need any approvals to enable or disable these flags in production?
+
+Thank you for your assistance!
+
 Hi Shiva,
 
 We are planning to deploy seven applications: Letter Angular, Core API, Clinical Auth Service, CGX UI, Careplan UI, CGX Fileshare, and CGX API; along with six services: Letters, CGX Careplan, AUTH Validation, CGX Assessment, CGX Authorization, and CGX Fax Service.
