@@ -1,15 +1,13 @@
 Hi Team,
 
-Can you please work on the below consuming apps and services using respective migration branch and check if SAST/DAST scan reports are coming -
+Could you please work on the following consuming apps and services using the respective migration branch and verify if the SAST/DAST scan reports are generated:
 
 Letter Angular
 CGX Fileshare
-Letter service
-CGXAssessment service
-CGXAuthorization service
-
-Please reach out to Sridhar for any guidance.
-
+Letter Service
+CGX Assessment Service
+CGX Authorization Service
+For any guidance, feel free to reach out to Sridhar. Thank you!
 
 Hi Team,
 
