@@ -1,4 +1,10 @@
 
+1. For Milestone 1 Devops alignment completed, we need to merge the changes to main otherwise GLAPI will fail so needed us to complete migration in 2 different dates(15/11 with regular release for applications with Switching LD flag OFF and then turning it on 21/11 alongside service deploymnet, this is going to be a first line deployment ).
+1. PPV validation alignment needed for our release on 21/11 and switching ON to the On prem environmnet.If not alighen we can't switch the appplication ON till the next integrated release in Dec.
+3. For milestone 3 & 4 codefreeze dates highightedin the atached excel, please help us getting teams alighment for our migration timeline convenience.
+
+
+
 We have finalized all M1 stories. Could you please create test cases for them and attach the QTest results to each individual story? Thank you!
 
 Hi Team,
