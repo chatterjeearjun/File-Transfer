@@ -1,3 +1,16 @@
+Hi Dan,
+
+We've finalized the migration plan and would need your assistance with the following challenges:
+
+For Milestone 1, DevOps alignment is completed, but we need to merge the changes into the main branch to prevent GLAPI failures. This requires us to complete the migration on two separate dates: 15/11 with the regular release for applications with the Switching LD flag turned OFF, and then switching it ON on 21/11 alongside the service deployment. This will be a first-line deployment.
+
+PPV validation alignment is needed for our release on 21/11 and switching ON to the on-premises environment. Without alignment, we won’t be able to switch the application ON until the next integrated release in December.
+
+For Milestones 3 and 4, the code freeze dates are highlighted in the attached Excel file. Please help us coordinate team alignment for a smoother migration timeline.
+
+Please let us know if you need any further information so we can arrange a call to discuss.
+
+Thank you!
 
 1. For Milestone 1 Devops alignment completed, we need to merge the changes to main otherwise GLAPI will fail so needed us to complete migration in 2 different dates(15/11 with regular release for applications with Switching LD flag OFF and then turning it on 21/11 alongside service deploymnet, this is going to be a first line deployment ).
 1. PPV validation alignment needed for our release on 21/11 and switching ON to the On prem environmnet.If not alighen we can't switch the appplication ON till the next integrated release in Dec.
