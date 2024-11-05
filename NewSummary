@@ -1,6 +1,8 @@
+
+Subject: Pioneer/On-Prem URLs for QA (M1 Services)
 Hi Nathika,
 
-Could you please complete the below excel of the pioneer and on prem URL for QA stress and QA environment for M1 services-
+Could you please complete the Excel sheet with the Pioneer and on-prem URLs for the QA Stress and QA environments for M1 services?
 
 
 We are migrating all services from the Pioneer environment to an on-premises setup. Since the Pioneer environment is cost-effective but scheduled for decommissioning in January 2025, this migration involves only an environment shift—no location or code changes will be required.
