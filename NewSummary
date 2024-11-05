@@ -1,3 +1,6 @@
+We are migrating all services from the Pioneer environment to an on-premises setup. Since the Pioneer environment is cost-effective but scheduled for decommissioning in January 2025, this migration involves only an environment shift—no location or code changes will be required.
+On the application side, we have added a flag to toggle between the on-premises and Pioneer environments. This serves as a precautionary measure, allowing us to switch back to Pioneer if any issues arise in the on-premises setup.
+
 Hi Dan,
 
 We've finalized the migration plan and would need your assistance with the following challenges:
