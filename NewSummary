@@ -1,3 +1,13 @@
+Migration Plan Review: M1 Pioneer to On-Prem Transition
+
+Hi Cyndi, I noticed you’re out sick today—hope you feel better soon!
+
+I'm reaching out from the Tech Enablement 5 group regarding our migration of several services from the Pioneer environment to an on-premises setup. Since the Pioneer environment is cost-effective but scheduled for decommissioning in January 2025, this migration is purely an environment shift with no logic or code changes required.
+
+For Milestone 1, we’re planning a First Lane release on 11/21 for these services, aligning with the integrated R24.11 application release. We’ve implemented a LaunchDarkly flag in all consuming applications, which will default to OFF (pointing to Pioneer). After the service deployment to on-prem on 11/21, we’ll switch it ON.
+
+I’ll schedule a call with you in the morning to review the plan. Please feel free to reschedule if that time isn’t convenient for you.
+
 Hi Jason, we've created the initial set of stories for M1, along with some for M2 and M3. I'll share these with you shortly. However, I think it would be beneficial to have a broader discussion to ensure we allocate enough code freeze time for the migrations, as we have critical timelines to meet.
 
 We had internal discussions with the team and Noorul, and we'd like to explore with Dan the possibility of moving our services and changes without a PPV. Given the tight deadline for the Pioneer migration, we're planning to implement more frequent first-lane deployments to stay on track. We'll be speaking with Dan today to go over the updated deployment plan.
