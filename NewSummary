@@ -1,3 +1,5 @@
+Hi Jason, we've created the initial set of stories for M1, along with some for M2 and M3. I'll share these with you shortly. However, I think it would be beneficial to have a broader discussion to ensure we allocate enough code freeze time for the migrations, as we have critical timelines to meet.
+
 We had internal discussions with the team and Noorul, and we'd like to explore with Dan the possibility of moving our services and changes without a PPV. Given the tight deadline for the Pioneer migration, we're planning to implement more frequent first-lane deployments to stay on track. We'll be speaking with Dan today to go over the updated deployment plan.
 Subject: Pioneer/On-Prem URLs for QA (M1 Services)
 Hi Nathika,
