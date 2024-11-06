@@ -1,3 +1,16 @@
+Fast Lane Deployment & Migration Update: CGX Applications (11/21)
+Hi Team,
+
+A quick heads-up: we’re planning a fast-lane deployment for several CGX applications and services on 11/21.
+
+This is part of our migration effort to move services from the Pioneer environment to an on-premises setup, as the Pioneer environment is scheduled for decommissioning in January 2025. This migration is strictly an environment shift, with no changes to logic or code.
+
+For Milestone 1, we’re aiming for a First Lane release on 11/21 for affected services, aligning with the R24.11 integrated release for consuming applications. We’ve set up a LaunchDarkly flag in all consuming applications, which will initially default to OFF (pointing to Pioneer). After the on-prem deployment on 11/21, we’ll switch the flag to ON.
+
+We’ll need your support with PPV coordination after the release to complete our part. Please let us know if you need any further details, and we can schedule a call to discuss.
+Thanks,
+
+
 Migration Plan Review: M1 Pioneer to On-Prem Transition
 
 Hi Cyndi, I noticed you’re out sick today—hope you feel better soon!
