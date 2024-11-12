@@ -1,3 +1,4 @@
+Hi Cyndi, is it essential for the above repositories to be associated with the DAST scan for this release, or is it more of a "nice-to-have"? If we exclude CMUM_User_Service and CGX_UM_Authorization_SVC, as there were no changes made to those services in version 24.11, the remaining applications already meet compliance requirements.
 
 Hi Priyanka,
 
