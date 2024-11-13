@@ -1,3 +1,5 @@
+Yes, service deployment and Pioneer to OnPrem cutover would happen on 11/21.
+
 Hi Team,
 
 Apologies for the confusion regarding the service endpoints. These are not live yet, as we are currently in the process of migration. We are aiming to complete the migration and deployment of the following services by 11/22, so the production endpoints will be available after that date.
