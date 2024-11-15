@@ -1,6 +1,7 @@
 Hi Malle,
 
-Thanks for supporting our release, as you are already aware this is just as a  check that below LD flags needs to be created in Production and state should be OFF.
+Thank you for supporting our release. As you are already aware, this is just a quick check to confirm that the following LD flags need to be created in Production with their state set to OFF.
+
 
 
 Yes, the service deployment and the Pioneer to On-Prem cutover are scheduled for 11/21.
