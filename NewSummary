@@ -1,3 +1,4 @@
+<PackageReference Include="System.IO.Packaging" Version="4.7.0" ExcludeAssets="all" />
 
 2024-11-18T16:03:26.6988292Z   GET https://humana.jfrog.io/artifactory/api/nuget/v3/cgx-nuget-virtual/registration-semver2/Download/system.security.cryptography.cng/4.5.0
 2024-11-18T16:03:26.7006785Z   OK https://humana.jfrog.io/artifactory/api/nuget/v3/cgx-nuget-virtual/registration-semver2/Download/system.security.principal.windows/4.5.0 125ms
