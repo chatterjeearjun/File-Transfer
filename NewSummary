@@ -1,3 +1,13 @@
+Hi Dan,
+
+I raised this access request in “g_azure_vsts_tech_enablement2_members” as I don’t have write access in the repo, I don’t have approval options in pull requests as well.
+
+Even though I am part of both “G_azure_vsts_Tech_Enablement5_members” and “G_azure_vsts_Tech_Enablement5_WorkAdmins” groups, I discussed this issue with Noorul and he suggested me to raise request in Tech Enablement 2.
+
+I raised another request for CXOne access to get myself added in “G_Azure_Security_Advocates” group, however it’s pending in owner’s approval state.Not sure if that’s the correct approach.As none of my team members can access the portal right now. Please advice on that.
+
+
+
 Hi Malle,
 
 Thank you for supporting our release. As you are already aware, this is just a quick check to confirm that the following LD flags need to be created in Production with their state set to OFF.
