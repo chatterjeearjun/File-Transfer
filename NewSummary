@@ -1,6 +1,4 @@
-No ⁠Sowjanya, we shouldn't merge the 24.12 defect fixes in this branch, Fax on-prem branch is going to production this week. Our changes are in line with R24.11, any production fixes we can incorporate, but not SIT defects.
-
-The application teams would need to merge Main branch into their release branches after our release on 11/21.
+No, Sowjanya, we shouldn’t merge the 24.12 defect fixes into this branch. The Fax on-prem branch is scheduled for production this week. Our changes align with R24.11, so we can incorporate any production fixes occurring between 11/15 and 11/21, but not SIT defects. After our release on 11/21, the application teams will need to merge the Main branch into their respective release branches.
 
 Thanks for the heads-up, Reece. We’re planning to release the application on 11/24. If you anticipate that resolving these issues might take longer, we should notify Dan in advance.
 
