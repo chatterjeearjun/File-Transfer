@@ -1,3 +1,66 @@
+
+2024-11-18T16:03:26.6988292Z   GET https://humana.jfrog.io/artifactory/api/nuget/v3/cgx-nuget-virtual/registration-semver2/Download/system.security.cryptography.cng/4.5.0
+2024-11-18T16:03:26.7006785Z   OK https://humana.jfrog.io/artifactory/api/nuget/v3/cgx-nuget-virtual/registration-semver2/Download/system.security.principal.windows/4.5.0 125ms
+2024-11-18T16:03:26.7668496Z   OK https://humana.jfrog.io/artifactory/api/nuget/v3/cgx-nuget-virtual/registration-semver2/Download/system.security.cryptography.cng/4.7.0 88ms
+2024-11-18T16:03:26.7949050Z   OK https://humana.jfrog.io/artifactory/api/nuget/v3/cgx-nuget-virtual/registration-semver2/Download/microsoft.netcore.dotnetapphost/2.0.7 129ms
+2024-11-18T16:03:26.8225128Z   OK https://humana.jfrog.io/artifactory/api/nuget/v3/cgx-nuget-virtual/registration-semver2/Download/system.security.cryptography.cng/4.5.0 123ms
+2024-11-18T16:03:26.8679778Z Resolving conflicts for net6.0...
+2024-11-18T16:03:26.8919636Z Checking compatibility of packages on .NETCoreApp,Version=v2.2.
+2024-11-18T16:03:26.9057090Z All packages and projects are compatible with .NETCoreApp,Version=v2.2.
+2024-11-18T16:03:26.9167558Z Value cannot be null.
+2024-11-18T16:03:26.9167917Z Parameter name: path
+2024-11-18T16:03:26.9174564Z   OK https://humana.jfrog.io/artifactory/api/nuget/v3/cgx-nuget-virtual/registration-semver2/Download/system.io.packaging/4.7.0 256ms
+2024-11-18T16:03:26.9324438Z System.ArgumentNullException: Value cannot be null.
+2024-11-18T16:03:26.9324849Z Parameter name: path
+2024-11-18T16:03:26.9325208Z    at System.IO.Path.GetFullPathInternal(String path)
+2024-11-18T16:03:26.9325572Z    at NuGet.Commands.RestoreCommand.GetAssetsFilePath(LockFile lockFile)
+2024-11-18T16:03:26.9326050Z    at NuGet.Commands.RestoreCommand.<ExecuteAsync>d__45.MoveNext()
+2024-11-18T16:03:26.9344973Z --- End of stack trace from previous location where exception was thrown ---
+2024-11-18T16:03:26.9345482Z    at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+2024-11-18T16:03:26.9346010Z    at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+2024-11-18T16:03:26.9346580Z    at NuGet.Commands.RestoreRunner.<ExecuteAsync>d__7.MoveNext()
+2024-11-18T16:03:26.9347237Z --- End of stack trace from previous location where exception was thrown ---
+2024-11-18T16:03:26.9347724Z    at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+2024-11-18T16:03:26.9348310Z    at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+2024-11-18T16:03:26.9348895Z    at NuGet.Commands.RestoreRunner.<ExecuteAndCommitAsync>d__6.MoveNext()
+2024-11-18T16:03:26.9349408Z --- End of stack trace from previous location where exception was thrown ---
+2024-11-18T16:03:26.9350475Z    at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+2024-11-18T16:03:26.9350866Z    at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+2024-11-18T16:03:26.9351312Z    at NuGet.Commands.RestoreRunner.<CompleteTaskAsync>d__9.MoveNext()
+2024-11-18T16:03:26.9351661Z --- End of stack trace from previous location where exception was thrown ---
+2024-11-18T16:03:26.9352015Z    at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+2024-11-18T16:03:26.9352657Z    at NuGet.Commands.RestoreRunner.<RunAsync>d__2.MoveNext()
+2024-11-18T16:03:26.9353011Z --- End of stack trace from previous location where exception was thrown ---
+2024-11-18T16:03:26.9353427Z    at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+2024-11-18T16:03:26.9353812Z    at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+2024-11-18T16:03:26.9354191Z    at NuGet.Commands.RestoreRunner.<RunAsync>d__0.MoveNext()
+2024-11-18T16:03:26.9354587Z --- End of stack trace from previous location where exception was thrown ---
+2024-11-18T16:03:26.9354936Z    at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+2024-11-18T16:03:26.9355305Z    at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+2024-11-18T16:03:26.9355711Z    at NuGet.Commands.RestoreRunner.<RunAsync>d__1.MoveNext()
+2024-11-18T16:03:26.9356034Z --- End of stack trace from previous location where exception was thrown ---
+2024-11-18T16:03:26.9356373Z    at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+2024-11-18T16:03:26.9356773Z    at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+2024-11-18T16:03:26.9357194Z    at NuGet.CommandLine.RestoreCommand.<ExecuteCommandAsync>d__52.MoveNext()
+2024-11-18T16:03:26.9357553Z --- End of stack trace from previous location where exception was thrown ---
+2024-11-18T16:03:26.9358559Z    at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+2024-11-18T16:03:26.9358954Z    at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+2024-11-18T16:03:26.9360561Z    at NuGet.CommandLine.Command.Execute()
+2024-11-18T16:03:26.9362060Z    at NuGet.CommandLine.Program.MainCore(String workingDirectory, String[] args)
+2024-11-18T16:03:27.0618830Z 11:03:27 [Info] Trace ID for JFrog Platform logs: 113cc81fcab7287b
+2024-11-18T16:03:27.1057871Z 11:03:27 [Error] exit status 1
+2024-11-18T16:03:27.1136225Z ##[debug]task result: Failed
+2024-11-18T16:03:27.1137867Z ##[error]Error: Command failed: F:\tfs\_work\_tool\jf\2.71.3\x64\jf.exe nuget restore -PackagesDirectory "F:\\tfs\\_work\\13179\\s" -Verbosity "Detailed"
+2024-11-18T16:03:27.1139002Z ##[debug]Processed: ##vso[task.issue type=error;]Error: Command failed: F:\tfs\_work\_tool\jf\2.71.3\x64\jf.exe nuget restore -PackagesDirectory "F:\\tfs\\_work\\13179\\s" -Verbosity "Detailed"
+2024-11-18T16:03:27.1140618Z ##[debug]Processed: ##vso[task.complete result=Failed;]Error: Command failed: F:\tfs\_work\_tool\jf\2.71.3\x64\jf.exe nuget restore -PackagesDirectory "F:\\tfs\\_work\\13179\\s" -Verbosity "Detailed"
+2024-11-18T16:03:27.1141563Z Executing JFrog CLI Command:
+2024-11-18T16:03:27.1141948Z F:\tfs\_work\_tool\jf\2.71.3\x64\jf.exe c remove "CGX_Authorization_PCF_5511185_nuget_resolver_1731945791460" --quiet
+2024-11-18T16:03:27.2891881Z ##[debug]Removing JFrog CLI build tool configuration...
+2024-11-18T16:03:27.2893072Z ##[debug]rm -rf F:\tfs\_work\13179\s\.jfrog\projects
+2024-11-18T16:03:27.2895238Z ##[debug]removing directory F:\tfs\_work\13179\s\.jfrog\projects
+2024-11-18T16:03:27.3223109Z ##[debug]includeEnvVars=false
+2024-11-18T16:03:27.3361333Z ##[section]Finishing: JFrog NuGet restore
+
 No, Sowjanya, we shouldn’t merge the 24.12 defect fixes into this branch. The Fax on-prem branch is scheduled for production this week. Our changes align with R24.11, so we can incorporate any production fixes occurring between 11/15 and 11/21, but not SIT defects. After our release on 11/21, the application teams will need to merge the Main branch into their respective release branches.
 
 Thanks for the heads-up, Reece. We’re planning to release the application on 11/24. If you anticipate that resolving these issues might take longer, we should notify Dan in advance.
