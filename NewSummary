@@ -1,3 +1,6 @@
+Hi Shivasankar, all the migration changes are now deployed in QA3 and toggles are enabled now. Please start the scheduled activities.
+
+
 <PackageReference Include="System.IO.Packaging" Version="4.7.0" ExcludeAssets="all" />
 
 2024-11-18T16:03:26.6988292Z   GET https://humana.jfrog.io/artifactory/api/nuget/v3/cgx-nuget-virtual/registration-semver2/Download/system.security.cryptography.cng/4.5.0
