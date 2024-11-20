@@ -1,3 +1,6 @@
+Thank you for pointing out the error messages in your previous email. After reviewing the currently deployed production codebase, we found the same errors present in the existing codebase. This indicates that these issues are not a result of our platform migration efforts. I suggest initiating a separate investigation for this, as it doesn't appear to be a blocker for us. Please find the screenshot attached.
+
+
 Hi Carolyn,
 
 I understand this is a late PPV inclusion to the team, but I don’t anticipate significant issues with the transition from Pioneer to On-prem. As I previously communicated to the team, this is an existing domain, and if it has been whitelisted by Conviva systems as mentioned, we shouldn't experience any downtime or issues. Since no functional changes were introduced during the migration activity, a basic sanity check should suffice.
