@@ -1,3 +1,13 @@
+Subject: UAT and Post-Prod Validation Request
+
+Hi Team,
+
+This is a quick update to inform you that the following services have been deployed to QA3. Could you please perform a round of UAT from your application to ensure there are no issues?
+
+We are planning to proceed with the production release tomorrow night between 9–11 PM EST. Would it be possible for you to conduct a Post-Production Validation (PPV) during that time? If so, kindly share your contact details so we can coordinate effectively after the release.
+
+Thank you!
+
 Hi Shivasankar, the migration changes have been successfully deployed to QA3, and the toggles are now enabled. You may proceed with the scheduled activities.
 
 Hi Shivasankar, all the migration changes are now deployed in QA3 and toggles are enabled now. Please start the scheduled activities.
