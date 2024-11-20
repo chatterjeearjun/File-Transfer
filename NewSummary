@@ -1,3 +1,7 @@
+Hi Carolyn,
+
+I understand this is a late PPV inclusion to the team, but I don’t anticipate significant issues with the transition from Pioneer to On-prem. As I previously communicated to the team, this is an existing domain, and if it has been whitelisted by Conviva systems as mentioned, we shouldn't experience any downtime or issues. Since no functional changes were introduced during the migration activity, a basic sanity check should suffice.
+
 Subject: UAT and Post-Prod Validation Request
 
 Hi Team,
