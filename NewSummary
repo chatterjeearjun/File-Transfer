@@ -1,5 +1,9 @@
 Hi Venkanna,
 
+We have learned that QA3 is not the appropriate environment to validate this flow, as our single environment, EMME, is currently pointing to QA2, which does not include our on-prem code changes. However, the letter creation flow has been validated from our side, so we should not be blocked by this environment constraint. Therefore, I kindly request you to defer this defect to QA2 so the respective team can address the issue.
+
+Hi Venkanna,
+
 We have learned that QA3 is not the appropriate environment to validate this flow, as our single environment, EMME, is currently pointing to QA2, which does not include our on-prem code changes. Therefore, I kindly request you to defer this defect to QA2 so the respective team can address the issue.
 
 Thank you for pointing out the error messages in your previous email. After reviewing the currently deployed production codebase, we found the same errors present in the existing codebase. This indicates that these issues are not a result of our platform migration efforts. I suggest initiating a separate investigation for this, as it doesn't appear to be a blocker for us. Please find the screenshot attached.
