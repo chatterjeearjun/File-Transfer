@@ -1,3 +1,11 @@
+Hi Karka,
+
+We have completed regression and UAT testing for all impacted areas concerning the Pioneer-to-On-Prem migration. At this stage, further validation phases cannot be accommodated, as the production release is scheduled for tonight.
+
+As you are aware, a toggle flag has been implemented, allowing us to disable the feature immediately if any issues arise, ensuring minimal disruption to operations.
+
+Given these constraints, I request your prompt approval for the required conditional sign-off to proceed as planned.
+
 Hi Venkanna,
 
 We have learned that QA3 is not the appropriate environment to validate this flow, as our single environment, EMME, is currently pointing to QA2, which does not include our on-prem code changes. However, the letter creation flow has been validated from our side, so we should not be blocked by this environment constraint. Therefore, I kindly request you to defer this defect to QA2 so the respective team can address the issue.
