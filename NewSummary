@@ -1,3 +1,11 @@
+<Exception><Type>System.Runtime.Serialization.SerializationException</Type><Message>Error in line 1 position 69. Expecting element 'ApiError' from namespace 'http://schemas.datacontract.org/2004/07/Humana.Clinical.Core.MVC'.. Encountered 'Element'  with name 'Envelope', namespace 'http://schemas.xmlsoap.org/soap/envelope/'.</Message><Source>System.Private.DataContractSerialization</Source><StackTrace>   at System.Runtime.Serialization.DataContractSerializer.InternalReadObject(XmlReaderDelegator xmlReader, Boolean verifyObjectName, DataContractResolver dataContractResolver)
+   at System.Runtime.Serialization.XmlObjectSerializer.ReadObjectHandleExceptions(XmlReaderDelegator reader, Boolean verifyObjectName, DataContractResolver dataContractResolver)
+   at System.Runtime.Serialization.XmlObjectSerializer.ReadObjectHandleExceptions(XmlReaderDelegator reader, Boolean verifyObjectName)
+   at System.Runtime.Serialization.DataContractSerializer.ReadObject(XmlReader reader)
+   at System.Net.Http.Formatting.XmlMediaTypeFormatter.ReadFromStream(Type type, Stream readStream, HttpContent content, IFormatterLogger formatterLogger)
+   at System.Net.Http.Formatting.XmlMediaTypeFormatter.ReadFromStreamAsync(Type type, Stream readStream, HttpContent content, IFormatterLogger formatterLogger)
+
+
 context.Response.Headers.Add(
     "Content-Security-Policy", 
     "default-src 'self' https://*.humana.com  https://*.humana.local https://*.humana.com:* wss://*.humana.com;script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.humana.com https://cdn.walkme.com;" +
