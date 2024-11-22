@@ -1,3 +1,7 @@
+Hi Dan,
+
+We investigated the care plan exhaust issue and identified a condition that reads the certificate from the Vault. However, the certificate name being pulled from the Vault was incorrect. We’ve updated it and deployed the fix to QA3. We'll schedule a round of regression testing, and the fix can be deployed during the earliest available window.
+
 <Exception><Type>System.Runtime.Serialization.SerializationException</Type><Message>Error in line 1 position 69. Expecting element 'ApiError' from namespace 'http://schemas.datacontract.org/2004/07/Humana.Clinical.Core.MVC'.. Encountered 'Element'  with name 'Envelope', namespace 'http://schemas.xmlsoap.org/soap/envelope/'.</Message><Source>System.Private.DataContractSerialization</Source><StackTrace>   at System.Runtime.Serialization.DataContractSerializer.InternalReadObject(XmlReaderDelegator xmlReader, Boolean verifyObjectName, DataContractResolver dataContractResolver)
    at System.Runtime.Serialization.XmlObjectSerializer.ReadObjectHandleExceptions(XmlReaderDelegator reader, Boolean verifyObjectName, DataContractResolver dataContractResolver)
    at System.Runtime.Serialization.XmlObjectSerializer.ReadObjectHandleExceptions(XmlReaderDelegator reader, Boolean verifyObjectName)
