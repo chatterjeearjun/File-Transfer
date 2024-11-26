@@ -1,3 +1,23 @@
+Incident: INC3338859
+Blot:
+There was failure noticed for one specific Fax template in prod and was brought to attention on 11/25.
+RC:
+One of the fixes made by App team to make to new template functional, was not merged from their local branch to main branch when On-perm changes were deployed.
+Event history:
+Tech wizard team moved a new template inclusion change for 24.11 release on 11/15.
+Prod build was taken based on 11/10, but incremental 24.12 changes were check-in made till in main branch till 11/13 as the team follow single branch approach
+On-perm migration changes were merged to ‘Main’ branch on 11/18 and turned to prod on 11/21 and toggled on.
+Issue reported in prod for the specific template in 11/25.
+Our Observation:
+The incremental code added for 24.12 by app team in main branch during the 24.11 release window did not have toggle, team mentioned it’s an independent change and should impact 24.11 changes
+However, there was fix made for 24.12 just before the on-perm changes moved, was added to main stating there was code freeze window between 11/15 and 11/21.
+The code freeze was to protect any new feature addition, but TE was not made aware of that this fix is essentially to prod code to be stable, despite lot of collaboration involved.
+Immediate solution:
+Fax service on-perm is toggled off and pointed back to pioneer.
+Next action:
+Missed fixed will be added by app team and Rollin with 24.12 and then toggle on.
+
+
 Hi Dan,
 
 Setting up a quick connect today to discuss the following outstanding items for the Milestone 2 and 3 releases, as well as last week's production incidents:
