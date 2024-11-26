@@ -1,6 +1,4 @@
-As you are aware that we couldn't turn the Letters Angular application in the production as there are existing package issues incopatible with angular version 
-and couldn't clear the secuirity clearance with currently 'C' graded, so I don't think the latest codebase has been deployed in environments other than QA3, I would su
-suggest to please deploy the latest code in Test,INT and QA2 and try once.
+As you are aware, we were unable to deploy the Letters Angular application to production due to existing package compatibility issues with the Angular version. Additionally, the security clearance could not be obtained with the current 'C' grade. Therefore, I believe the latest codebase has not been deployed in environments other than QA3. I recommend deploying the latest code to the Test, INT, and QA2 environments for further testing.
 
 #!/usr/bin/env python
 # coding: utf-8
