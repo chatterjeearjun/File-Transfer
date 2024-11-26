@@ -1,3 +1,353 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+import pandas as pd
+from pandas import json_normalize
+import json
+import requests
+from datetime import datetime
+import os
+import ml_mq_config
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+import priors
+import joblib
+import sys
+
+PAT_ELIGIBLE_CLF = joblib.load("model_pat_eligible.pkl")
+PAT_LOS_CLF = joblib.load("model_los.pkl")
+
+# MODEL_COLUMNS = ['auth_cov_issue_state', 'auth_cov_network_id', 'auth_cov_product_cd',
+       # 'auth_grouper_id', 'auth_grouper_name', 'auth_mbr_pcp_name',
+       # 'auth_request_type', 'diag_1_code', 'diag_2_code', 'diag_3_code',
+       # 'diag_4_code', 'diag_1_cat_code', 'diag_2_cat_code', 'diag_3_cat_code',
+       # 'diag_4_cat_code', 'src_case_id', 'facility_npi', 'facility_tin',
+       # 'proc_1_code', 'proc_1_code_desc', 'proc_2_code', 'proc_2_code_desc',
+       # 'requesting_provider_npi', 'requesting_provider_tin',
+       # 'treating_provider_npi', 'treating_provider_tin',
+       # 'auth_grouper_id_hit_diff', 'auth_mbr_pcp_name_hit_diff',
+       # 'diag_1_code_hit_diff', 'facility_npi_hit_diff',
+       # 'facility_tin_hit_diff', 'requesting_provider_npi_hit_diff',
+       # 'requesting_provider_tin_hit_diff', 'treating_provider_npi_hit_diff',
+       # 'treating_provider_tin_hit_diff']
+
+dict_product = {'EPO / CAS': 'EPO', 'HML / MTV': 'HML', 'HMO / CAS': 'HMO', 'HMO / MTV': 'HMO', 'IND / CAS': 'IND', 'IND / MTV': 'IND', 'IPP / MTV': 'IPP', 'IPS / MTV': 'IPS', 'MCD / CAS': 'MCD', 'MCD / MTV': 'MCD', 'MEF / CAS': 'MEF', 'MEP / CAS': 'MEP', 'MER / CAS': 'MER', 'MES / CAS': 'MES', 'MGP / CAS': 'MGP', 'MGR / CAS': 'MGR', 'MRO / CAS': 'MRO', 'NPOS / MTV': 'NPOS', 'POS / CAS': 'POS', 'POS / MTV': 'POS', 'PPO / CAS': 'PPO', 'PPO / MTV': 'PPO', 'RSK / MTV': 'RSK'}
+
+medicare_lobs = ['MES','MER','MGR','MRO','MGO','MGP','MRP','MDG','MDI','MOG','MOI','MEP','MRA',
+                 'MPI','MPG','MCI','MCG','MEF','MGF','MPA','MED']
+
+if os.getenv('APP_SETTINGS', 'config.DevelopmentConfig') == 'config.DevelopmentConfig':
+    app = ml_mq_config.DevelopmentConfig
+elif os.getenv('APP_SETTINGS', 'config.DevelopmentConfig') == 'config.IntConfig':
+    app = ml_mq_config.IntConfig
+elif os.getenv('APP_SETTINGS', 'config.DevelopmentConfig') == 'config.QAConfig':
+    app = ml_mq_config.QAConfig
+elif os.getenv('APP_SETTINGS', 'config.DevelopmentConfig') == 'config.StressConfig':
+    app = ml_mq_config.StressConfig
+else:
+    app = ml_mq_config.ProductionConfig
+
+app = ml_mq_config.ProductionConfig
+    
+def get_auth_info(doc):
+    mbr_cols = ['StateOfIssue','GrouperId','GrouperName','PCPName','NetworkId','Product','SalesChannelLOB','LOB']
+    df_mbr_tmp = json_normalize(doc.get('MemberInformation'))
+    df_mbr = df_mbr_tmp[mbr_cols].reset_index().drop('index',axis=1)
+    df_mbr['auth_cov_product_cd'] = df_mbr['Product'].map(dict_product)
+    df_mbr['auth_cov_issue_state'] = df_mbr['StateOfIssue']
+    df_mbr = df_mbr.drop(['Product','StateOfIssue'],axis=1)
+    final_mbrs = df_mbr.rename({'NetworkId':'auth_cov_network_id','GrouperId':'auth_grouper_id',
+                                'GrouperName':'auth_grouper_name','PCPName':'auth_mbr_pcp_name'},axis=1)
+    auth_cols = ['AdmissionDate','CreatedDate','DischargeDate','RequestTypeCode','OverallAuthStatus',
+             'AuthTypeCode','AuthId','AuthType']
+    df_auth_tmp = json_normalize(doc.get('AuthorizationInformation'))
+    df_auth = df_auth_tmp[auth_cols].reset_index().drop('index',axis=1)
+    final_auth = df_auth.rename({'RequestTypeCode':'auth_request_type','AuthId':'src_auth_id'},axis=1)
+    provcols = ['FacilityProvider.Npi','FacilityProvider.Tin',
+            'RequestingProvider.Npi','RequestingProvider.Tin',
+            'TreatingProvider.Npi','TreatingProvider.Tin']
+    df_prov_tmp = json_normalize(doc.get('ProviderInformation'))
+    df_prov = df_prov_tmp[provcols]
+    full_prov = df_prov.rename({'FacilityProvider.Npi': 'facility_npi',
+                                'FacilityProvider.Tin': 'facility_tin',
+                                'RequestingProvider.Npi': 'requesting_provider_npi',
+                                'RequestingProvider.Tin': 'requesting_provider_tin',
+                                'TreatingProvider.Npi': 'treating_provider_npi',
+                                'TreatingProvider.Tin': 'treating_provider_tin'},axis=1)
+    diag_tmp = pd.DataFrame(columns=['diag_1_code','diag_2_code','diag_3_code','diag_4_code'])
+    primarydiag = json_normalize(doc.get("MedicalCodeInformation"))['PrimaryDiagnosisCode.Code'][0]
+    if doc.get("MedicalCodeInformation")['SecondaryDiagnosisCodes'] == None:
+        diag = diag_tmp.append({'diag_1_code':primarydiag},ignore_index=True)
+    elif len(json_normalize(doc.get("MedicalCodeInformation"))['SecondaryDiagnosisCodes'][0]) > 1:
+        diagothers = json_normalize(doc,record_path=[['MedicalCodeInformation','SecondaryDiagnosisCodes']])
+        diagothers['id'] = diagothers.index + 2
+        diagothers['cd'] = 'diag_'+diagothers.id.astype(str)+'_code'
+        diag2 = diagothers.pivot_table(columns='cd',values='Code',aggfunc=max).reset_index()
+        diag = diag_tmp.append(diag2,sort=True)
+        diag['diag_1_code'] = primarydiag
+    else:
+        diag = diag_tmp.append({'diag_1_code':primarydiag},ignore_index=True)       
+    if json_normalize(doc.get("MedicalCodeInformation"))['ProcedureCodes'].count() > 0:
+        proccodes_tmp = json_normalize(doc,record_path=[['MedicalCodeInformation','ProcedureCodes']])
+        proccodes_tmp = proccodes_tmp[['Code','FullDescription']]
+        proccodes_tmp['id'] = proccodes_tmp.index + 1
+        proccodes_tmp['cd'] = 'proc_'+proccodes_tmp.id.astype(str)+'_code' 
+        proccodes_tmp['desc'] = 'proc_'+proccodes_tmp.id.astype(str)+'_code_desc'
+        proc1 = (proccodes_tmp
+                 .pivot_table(columns='cd',values='Code',aggfunc=max)
+                 .reset_index().drop('index',axis=1))
+        proc2 = (proccodes_tmp
+                 .pivot_table(columns='desc',values='FullDescription',aggfunc=max)
+                 .reset_index().drop('index',axis=1))
+        proc = pd.concat([proc1,proc2],axis=1)
+    else:
+        proc = pd.DataFrame(columns=['proc_1_code','proc_1_code_desc',
+                                     'proc_2_code','proc_2_code_desc'])
+    setup = pd.concat([final_mbrs,final_auth,full_prov,diag,proc],axis=1)
+    setup['AuthGuid'] = doc.get('AuthGuid')
+    final_cols = ['auth_cov_issue_state','auth_cov_network_id','auth_cov_product_cd',
+    'auth_grouper_id','auth_grouper_name','auth_mbr_pcp_name','auth_request_type',
+    'diag_1_code','diag_2_code','diag_3_code','diag_4_code',
+    'facility_npi','facility_tin','proc_1_code','proc_1_code_desc','proc_2_code',
+    'proc_2_code_desc','requesting_provider_npi','requesting_provider_tin','src_auth_id',
+    'treating_provider_npi','treating_provider_tin','AuthGuid']
+    final_setup = pd.DataFrame(columns=final_cols)
+    cols = ['requesting_provider_npi',
+            'requesting_provider_tin',
+            'treating_provider_npi',
+            'treating_provider_tin',
+            'facility_npi',
+            'facility_tin']
+    for col in cols:
+        final_setup[col] = final_setup[col].fillna(0)
+    final_tmp = final_setup.append(setup,sort=True)
+    filter = ((final_tmp['AuthTypeCode'] == 1) & (final_tmp['LOB'].isin(medicare_lobs)))
+    final_tmp2 = final_tmp[filter]
+    final = final_tmp2[final_cols]
+            
+    return final_tmp, final
+
+
+def auth_check2(doc2):
+    if 'AuthorizationInformation' in doc2:
+        Auth_type_code = json_normalize(doc2.get('AuthorizationInformation'))['AuthTypeCode'][0]
+    auth_lob = json_normalize(doc2.get('MemberInformation'))['LOB'][0]
+    if Auth_type_code != 1 or auth_lob not in medicare_lobs:
+        value = "Not Medicare Inpatient Authorization"
+    else:
+        value = "Medicare Inpatient Auth"
+    return value
+
+
+def add_priors(df):
+    try:
+        for col in df.columns:
+            if col in priors.lookup.keys():
+                prior = priors.lookup[col]
+                for i, v in df[col].items():
+                    df[col+'_hit_diff'] = prior[v] if v in prior else 0.
+    except Exception as e:
+        print("Something went wrong fetching priors: " + str(e))
+    return df
+
+
+def predict_pat_eligible(df):
+    scr = None
+    try:
+        print(df.to_csv(sep='|'))
+        scr = PAT_ELIGIBLE_CLF.predict(df)[0]
+        print('Scored PAT: ' + str(scr))
+    except Exception as e:
+        print("Something went wrong with scoring eligibility: " + str(e))
+    return scr
+
+
+def predict_los(df):
+    scr = None
+    try:
+        scr = int(PAT_LOS_CLF.predict(df)[0])
+        print('Scored LOS: ' + str(scr))
+    except Exception as e:
+        print("Something went wrong with scoring LOS: " + str(e))
+    return scr
+
+
+def get_pat_elig(df1):
+    if df1.empty == False:
+        print('Predicting Eligibility Indicator')
+        predict = predict_pat_eligible(df1)
+        df_new = df1.copy()
+        df_new['prediction'] = predict
+        df_pp2 = df_new
+        df_pp2['Pateligible'] = df_pp2['prediction'].map({1.0:'Eligible',0.0:'Not Eligible'})
+        df_pp2 = df_pp2[df_pp2['Pateligible'] == 'Eligible']
+    else:
+        df_pp2 = pd.DataFrame()
+        predict = None        
+    return df_pp2, predict
+
+
+def get_los(df1):
+    df1 = add_priors(df1)
+    add_cat = lambda x: x.split('.')[0] if '.' in x else ''
+    df1['diag_1_cat_code'] = df1['diag_1_code'].apply(add_cat)
+    df1['diag_2_cat_code'] = df1['diag_2_code'].apply(add_cat)
+    df1['diag_3_cat_code'] = df1['diag_3_code'].apply(add_cat)
+    df1['diag_4_cat_code'] = df1['diag_4_code'].apply(add_cat)
+
+    df_step_2_upload, pat_predict = get_pat_elig(df1)
+    if df_step_2_upload.empty == False:
+        print('Predicting DRG LOS')
+        predict = predict_los(df_step_2_upload)
+        df_new = df1.copy()
+        df_new['prediction'] = predict
+        df_los2 = df_new
+        df_los2['Pateligible'] = 'Eligible'
+        df_los2['PatDrgLos'] = df_los2['prediction']
+        df_los2 = df_los2.drop(columns = ['prediction'])
+    else:
+        df_los2 = df1.copy()
+        df_los2['Pateligible'] = "Not Eligible"  
+        df_los2['PatDrgLos'] = None
+    return df_los2
+
+
+def get_messages(session):
+    message = None
+    check = None
+    get_header = {'Content-Type': "application/json;charset=UTF-8"}
+    try:
+        print('GET MQ API to fetch the next message')
+        print('Requesting data from {0}'.format(app.queue_url))
+        data = session.request("GET",
+                                app.queue_url,
+                                verify=False,
+                                headers=get_header)
+    except requests.exceptions.RequestException as e:
+        print(e)
+        return message, check
+
+    try:
+        print('Request completed with status code: {0}'.format(data.status_code))
+        
+        data = data.json()
+        
+        if 'content' in data and data['content'] != '':
+            message = json.loads(data['content'])
+            print('Processing authId: ' + message.get('AuthorizationInformation')['AuthId'])
+        else:
+            check = 'Done'
+            message = None
+    except (TypeError, KeyError, AttributeError, ValueError) as e:
+        print('An error occurred attempting to parse json, no authId available.')
+        check = 'Done'
+        message = None 
+
+    return message, check
+
+
+def main(message, session):
+    df1 = pd.DataFrame() 
+    df2 = pd.DataFrame()
+    dr_df = pd.DataFrame()
+    status_check = ''
+    try:
+        t2 = datetime.now()
+        df1, df2 = get_auth_info(message)
+        
+    except Exception as e:
+        print("Issue with running for loop in message")
+        print(e)
+        status_check = 'Done'
+    if df2.empty:
+        print("No Inpatient Authorizations to Score")
+        df_merge = df2       
+    else:
+        try:
+            df2 = df2.fillna("")
+            dr_df = get_los(df2)
+            df_merge = df2.merge(dr_df[['src_auth_id','AuthGuid','Pateligible','PatDrgLos']],
+                                on=['src_auth_id','AuthGuid'],how='left')
+        except Exception as e:
+            print("Auth is unable to score")
+            print(e)
+            df_merge = df2
+            df_merge['Pateligible'] = "Not Eligible"  
+            df_merge['PatDrgLos'] = None
+    return df_merge, df1, df2, dr_df, status_check
+
+
+'''
+PAT Eligible calculation - The function below executes on this logic
+
+(Todays date - Discharge date )  <= 3 days
+and 
+LOS (Discharge Date - Admission date) <= ML PAT DRG LOS Days
+
+PAT will not be Eligible on the below scenarios 
+(Todays date - Discharge date )  > 3 days
+(or)
+LOS (Discharge Date - Admission date) >  ML PAT DRG LOS Days
+'''
+def disch_dt(a,b):    
+    c_dict = {}
+    if b.empty:
+        d = b
+    else:
+        a['today'] = pd.to_datetime('today', utc=True, errors='coerce')
+        a['days_since_discharge'] = (a['today'] - (pd.to_datetime(a['DischargeDate'], utc=True, errors='coerce'))).dt.days + 1
+        a['Actual_LOS'] = (pd.to_datetime(a['DischargeDate'], utc=True, errors='coerce') - pd.to_datetime(a['AdmissionDate'], utc=True, errors='coerce')).dt.days + 1
+        c = pd.merge(b,a[['src_auth_id','AdmissionDate','AuthGuid','Actual_LOS','DischargeDate','today','days_since_discharge']],
+                     on=['src_auth_id','AuthGuid'],how='left',sort=True)
+        c_dict = c.to_dict(orient='records')
+        for row in c_dict:
+            if row['AdmissionDate'] != None and row['DischargeDate'] != None:
+                if row['days_since_discharge'] > 3 or (row['PatDrgLos'] != None and row['Actual_LOS'] > float(row['PatDrgLos'])):
+                    row['Pateligible'] = "Not Eligible"
+                    row['PatDrgLos'] = None
+            else:
+                print('The auth is missing required information. AdmissionDate: {0}, DischargeDate{1}'.format(row['AdmissionDate'], row['DischargeDate']))
+                
+        d = pd.DataFrame.from_dict(c_dict,orient='columns')
+        d = d[['src_auth_id','AuthGuid','Pateligible','PatDrgLos']]
+        d = d.rename(columns={'src_auth_id':"AuthId","Pateligible":'PatEligibility'})
+    return d
+
+
+with requests.Session() as s:
+    while True:
+        Status = ''
+        while Status != 'Done':
+            msg, Status = get_messages(s)
+            if msg != None:
+                auth_type = auth_check2(msg)
+                if auth_type == 'Medicare Inpatient Auth' and msg != None:
+                    df_m, d1, d2, dr_df, Status = main(msg, s)
+                    df_m2 = disch_dt(d1,df_m)
+                    header = {'X-Humana-Clinical-Api-Key':app.cgx_header_api_key,
+                       'Content-Type': "application/json;charset=UTF-8"}
+                    df_cgx = df_m2.to_dict(orient='records')
+                    if df_cgx is None or len(df_cgx) < 1:
+                       continue
+                    data2post = json.dumps(df_cgx[0])
+                    print('POST CGX API to update UI')
+                    notificationResponse = s.request("POST", 
+                                                    app.cgx_url, 
+                                                    verify=False,
+                                                    data=data2post,
+                                                    headers=header)
+                    print('Request completed with status: '.format(notificationResponse.status_code))
+                    print('PAT Eligibility Determination Completed - %s'%str(datetime.now()))
+                    Status = 'Done'
+                else:
+                    print(auth_type)
+                    print('PAT Eligibility Determination Completed - %s'%str(datetime.now()))
+                    Status = 'Done'
+            else:
+                print('No messages available in queue')
+                Status = 'Done'
+raise RuntimeError('The session unexpectedly terminated')
+
 Incident: INC3338859
 Blot:
 There was failure noticed for one specific Fax template in prod and was brought to attention on 11/25.
