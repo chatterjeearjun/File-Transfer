@@ -1,3 +1,61 @@
+# Main function
+def main_job():
+    with requests.Session() as s:
+        while True:
+            Status = ''
+            while Status != 'Done':
+                msg, Status = get_messages(s)
+                if msg is not None:
+                    auth_type = auth_check2(msg)
+                    if auth_type == 'Medicare Inpatient Auth' and msg is not None:
+                        df_m, d1, d2, dr_df, Status = main(msg, s)
+                        df_m2 = disch_dt(d1, df_m)
+                        header = {
+                            'X-Humana-Clinical-Api-Key': app.cgx_header_api_key,
+                            'Content-Type': "application/json;charset=UTF-8",
+                        }
+                        df_cgx = df_m2.to_dict(orient='records')
+                        if df_cgx is None or len(df_cgx) < 1:
+                            continue
+                        data2post = json.dumps(df_cgx[0])
+                        print('POST CGX API to update UI')
+                        notificationResponse = s.request(
+                            "POST",
+                            app.cgx_url,
+                            verify=False,
+                            data=data2post,
+                            headers=header,
+                        )
+                        print(
+                            'Request completed with status: '
+                            f"{notificationResponse.status_code}"
+                        )
+                        print(
+                            'PAT Eligibility Determination Completed - '
+                            f"{str(datetime.now())}"
+                        )
+                        Status = 'Done'
+                    else:
+                        print(auth_type)
+                        print(
+                            'PAT Eligibility Determination Completed - '
+                            f"{str(datetime.now())}"
+                        )
+                        Status = 'Done'
+                else:
+                    print('No messages available in queue')
+                    Status = 'Done'
+
+# Keep the script running indefinitely
+if __name__ == "__main__":
+    while True:
+        try:
+            main_job()
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            print("Restarting the script...")
+            time.sleep(10)  # Wait 10 seconds before restarting
+
 As you are aware, we were unable to deploy the Letters Angular application to production due to existing package compatibility issues with the Angular version. Additionally, the security clearance could not be obtained with the current 'C' grade. Therefore, I believe the latest codebase has not been deployed in environments other than QA3. I recommend deploying the latest code to the Test, INT, and QA2 environments for further testing.
 
 #!/usr/bin/env python
