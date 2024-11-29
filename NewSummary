@@ -1,3 +1,11 @@
+Hi Team,
+
+Could you please retrigger the scans for the following Milestone 2 services? We have implemented a couple of code fixes and checked them in, but the updates are not yet reflecting the correct state:
+Additionally, developers, we need to improve the scores for these services. Please prioritize this, as it could become a blocker for us.
+
+Thanks,
+Arjun
+
 Could you please retrigger the scans for the below Milestone 2 services, we have made couple of code fixes and checked in the code. However, it’s still not reflecting the correct state-
 
 6902891	APPSVC070383	D-D	M2-Cgx-External: Migration of Cgx-External Pioneer to On-Premises Service
