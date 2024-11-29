@@ -1,3 +1,16 @@
+Could you please retrigger the scans for the below Milestone 2 services, we have made couple of code fixes and checked in the code. However, it’s still not reflecting the correct state-
+
+6902891	APPSVC070383	D-D	M2-Cgx-External: Migration of Cgx-External Pioneer to On-Premises Service
+6902950	APPSVC051399	D-D	M2-Cgx-CGXMDReview (UMAPI): Migration of CGX MD Review (UMAPI) Pioneer to On-Premises Service
+6938238	APPSVC056425	D-D	M2-Cgx-PushNotification: Migration of Cgx-PushNotification Pioneer to On-Premises Service
+6938723	APPSVC055299	D-D	M2-CGXPushNotification - Consuming application 3 - Common Service
+
+Devs, we need to get the score up for the aforementioned services, please start working on it otherwise it would be a blocker for us.
+
+Thanks,
+Arjun
+
+
 # Main function
 def main_job():
     with requests.Session() as s:
