@@ -1,3 +1,20 @@
+Subject: Assistance Needed for Code Freeze Alignment for Milestone 3 Services
+
+Hi Carine,
+
+We are nearing the completion of the development and deployment of Milestone 2 services up to QA. However, we have a few dependencies on applications managed by the UM team and need support with code freeze alignment for the Clinical Authorization Milestone 3 service.
+
+CGX-External Service Migration:
+We are migrating the CGX-External service from Pioneer to On-prem. During the codebase analysis, we identified two ACE applications—UMRules and IIB.Environments—that are consuming this service. It is essential to coordinate with the IIB team to notify them about this migration and ensure they update the service URL on their end to maintain functionality.
+
+Letters Service Update:
+The Letters service migration was completed in Milestone 1. However, we observed that the ACE.Letter application is still consuming the Pioneer service. Similar to the above, coordination with the IIB team is required to inform them about the migration and to update the URL to the On-prem version.
+
+Clinical Authorization Service Alignment:
+For the Clinical Authorization service scheduled for Milestone 3, we noticed ongoing development by the team. To ensure smooth progress, we need to align on a code freeze date, assuming there are no changes planned for 25.01. If alignment on the code freeze is not possible, clear communication will be necessary. Specifically, the team should begin working on the migration branch (from Pioneer to On-prem) that we will provide.
+
+Looking forward to your guidance and support to ensure a smooth transition.
+
 Hi Team,
 
 Could you please retrigger the scans for the following Milestone 2 services? We have implemented a couple of code fixes and checked them in, but the updates are not yet reflecting the correct state:
