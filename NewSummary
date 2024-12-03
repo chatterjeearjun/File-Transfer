@@ -1,11 +1,11 @@
-HI Sowjanya
+Hi Sowjanya,
 
-We have decided to remove the toggle functionality and move on with the direct URL change, as the letter service is up and working in production for a couple of weeks now and all of our toggle changes are redundant as going forward there won’t be any pioneer deployment in Letters.
-I hope that makes sense, I will raise a PR to remove all our changes except for the URL update and let you know.
+We have decided to proceed with a direct URL change and remove the toggle functionality. Since the Letters service has been live in production for a few weeks now, the toggle changes have become redundant. Additionally, there won’t be any further Pioneer deployments for Letters moving forward.
+
+I hope this approach makes sense. I will raise a PR to remove all redundant changes except for the URL update and will keep you informed.
 
 Thanks,
 Arjun
-
 
 Subject: Assistance Needed for Code Freeze Alignment for Milestone 3 Services
 
