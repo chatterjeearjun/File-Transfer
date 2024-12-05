@@ -1,3 +1,6 @@
+One of our Milestone2 service - FaxDisposition, is going through the load testing phase, could you please give a heads up once your final change is merged for Release24.12, so that we can incorporate the same into our branch and plan for a FLD post 24.12?
+
+
 Hi Sowjanya,
 
 We have decided to proceed with a direct URL change and remove the toggle functionality. Since the Letters service has been live in production for a few weeks now, the toggle changes have become redundant. Additionally, there won’t be any further Pioneer deployments for Letters moving forward.
