@@ -1,3 +1,17 @@
+Hi Ravali,
+
+Please find our responses below -
+
+1.Please plan to perform Conviva user testing for Milestone 2 -- We already communicated with Conviva support  team and they are aware of the Endpoint changes, we are waiting for a confirmation for PPV support from them.
+2.Please advise what is the plan for cleaning up Milestone 1 related changes like hits from Letters PowerShell scripts, IMP screens etc.—Dev team would verify first from locally for IMP screens then we need to deploy IMP application to lower environment for testing. DevOps team can update the PowerShell end point in letters during Integrated release 24.12.
+3.For the standalone services for Milestone 3 please plan on implementing Dynatrace monitors for the windows service – We don't think there is monitoring for windows service as none of service has separate monitoring in place, if needed we can discuss the setup process and create an action plan post Milestone2 release.
+4.Please confirm whether we are having separate App Pools for each of the service and we are not clubbing together any of the app pools during IIS setup – Yes, we have separate app pools for each app.
+5.Please make sure to check Logs Tables for any new errors captured during regression and please confirm what trend we are providing to storage team on adding CPU-- Dev and load testing team would capture the CPU trends during load test
+
+Thanks,
+Arjun
+
+
 Hi Gomathy,
 
 I hope you're doing well.
