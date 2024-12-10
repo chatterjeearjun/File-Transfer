@@ -1,12 +1,13 @@
-Hi Ranjita
+Hi Ranjita,
 
-Thanks for sharing the plan with us, we are aligned with the updated timeline and works fine for us.
-I would reach out to you on or before 20th Dec, to provide the branch details of ClinicalAuthorization service from where teams needs to down merge to  25.01 changes and get it deployed in On-Prem lower environments(QA1).
-Just wanted to clarify that all testing would be done pointing to On-Prem URL for ClinicalAuthorization service.
+Thank you for sharing the updated plan. We are aligned with the revised timeline for M1 and M2, and it works well for us.
 
-Thanks,
+I will reach out to you on or before December 20th to share the branch details for the ClinicalAuthorization service (M3). The teams will need to down-merge the code into the Release 25.01 branch and deploy it to the On-Prem lower environments (QA1).
+
+Additionally, I want to confirm that you are aligned with the approach that all testing for Release 25.01 will be conducted using the On-Prem URL for the ClinicalAuthorization service.
+
+Thank you,
 Arjun
-
 
 Hi Ravali,
 
