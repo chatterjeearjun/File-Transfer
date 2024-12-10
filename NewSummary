@@ -1,3 +1,13 @@
+Hi Ranjita
+
+Thanks for sharing the plan with us, we are aligned with the updated timeline and works fine for us.
+I would reach out to you on or before 20th Dec, to provide the branch details of ClinicalAuthorization service from where teams needs to down merge to  25.01 changes and get it deployed in On-Prem lower environments(QA1).
+Just wanted to clarify that all testing would be done pointing to On-Prem URL for ClinicalAuthorization service.
+
+Thanks,
+Arjun
+
+
 Hi Ravali,
 
 We are in touch with the Regression and Load Test teams, and the test results will be shared with the team as soon as we receive them. Please find our responses to your queries below:
