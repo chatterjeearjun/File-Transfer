@@ -6,7 +6,20 @@ Four milestone2 Services – Member,Exernal,MDReview and Pushnotifications are n
 We will continue monitoring the performance of the on-prem services for a few days.
 Here is the summary of Milestone 2:
 
+**Subject:** Milestone 2 Service Migration - Completion Summary  
 
+Hi Dan,  
+
+We’ve successfully completed the Milestone 2 service migration and received the PPV sign-off.  
+
+Here are the key updates:  
+- Two services (Careplan and Fax), which were toggled OFF after the first milestone, are now fixed and pointing to On-Prem.  
+- The two remaining consuming applications (Letter Angular and User) have also been updated to point to the On-Prem services.  
+- Four Milestone 2 services – Member, External, MDReview, and Pushnotifications – are now deployed on On-Prem. All consuming applications, except ACE/IIB, are now pointing to these On-Prem services.  
+
+We will continue to monitor the performance of the On-Prem services over the next few days.  
+
+Here’s a summary of Milestone 2:  
 Hi Sunil,
 
 I encountered some issues while claiming tasks for the week, but I’ve managed to resolve them and can fill them in now. However, I’m unable to enter backdated hours in my timesheet as it appears frozen. Could you please assist me with this?
