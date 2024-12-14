@@ -1,3 +1,12 @@
+Hi Dan,
+
+We have successfully completed the Milestone 2 service migration. We have received PPV sign-off.
+We had 2 services(Careplan and Fax) which was toggled OFF after first milestone, the issue is fixed and pointing to On-Prem. Two leftover consuming applications(Letter Angular and User) are now pointing to On-Prem services.  
+Four milestone2 Services – Member,Exernal,MDReview and Pushnotifications are now deployed in On-Prem and all consuming applications except ACE/IIB are now pointing to on-prem.
+We will continue monitoring the performance of the on-prem services for a few days.
+Here is the summary of Milestone 2:
+
+
 Hi Sunil,
 
 I encountered some issues while claiming tasks for the week, but I’ve managed to resolve them and can fill them in now. However, I’m unable to enter backdated hours in my timesheet as it appears frozen. Could you please assist me with this?
