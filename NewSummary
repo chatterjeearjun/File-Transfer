@@ -1,3 +1,7 @@
+Please find the below excel containing the service URL mapping-
+We aven’t merged latest 24.12 changes yet, once it’s merged and deployed in the below endpoints we will let you know, at this time you may find few URLsnot accessible or doesn’t return latest results, be rest assured that we are working on code merge and deployment across all environments till QA Stress, We should have everything ready for QA by 12/20(Including code-fix release changes if any)
+
+
 Hi Dan,
 
 We have successfully completed the Milestone 2 service migration. We have received PPV sign-off.
