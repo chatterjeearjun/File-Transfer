@@ -1,3 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Redis" Version="1.1.5" />
+    <PackageReference Include="MessagePack" Version="1.7.3.7">
+      <ExcludeAssets>All</ExcludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>
+
 Kindly find the attached Excel file containing the service URL mapping.
 
 Please note that the latest 24.12 changes have not yet been merged. Once these changes are merged and deployed to the endpoints listed, we will notify you. In the meantime, some URLs may be inaccessible or may not return the latest results. Rest assured, we are actively working on the code merge and deployment across all environments up to QA Stress. We expect everything, including any necessary code-fix release changes, to be ready for QA by 12/20.
