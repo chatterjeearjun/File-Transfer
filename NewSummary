@@ -1,3 +1,10 @@
+services.AddSignalR(hubOptions =>
+{
+    hubOptions.EnableDetailedErrors = true;
+    // hubOptions.KeepAliveInterval = TimeSpan.FromSeconds(30);
+});
+//.AddRedis(Configuration["backplane"]); 
+
 Are there any breakfix codes we need to incorporate, or are we ready to proceed with a dry run, lock all changes, and prepare for deployment tomorrow?
 <ItemGroup>
   <PackageReference Include="ParentPackage" Version="x.y.z">
