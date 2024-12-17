@@ -1,3 +1,15 @@
+Hi Team,
+
+Here is a summary of the changes scheduled for deployment during the breakfix window. Please review the updates and let us know if you would like a knowledge transfer (KT) session or call to discuss them. We can arrange it as needed.
+
+M2-CGXFaxDisposition Service: Deployment scheduled.
+M2-CGXPushNotification: Bugfix for the Messagepack 500 API response.
+M1-Careplan UI (Angular): Added a toggle for Member and Logging API calls, as they are still routing to Pioneer.
+UMAPI (MDReview): Toggle ON and browser cache clearance notifications for users (no code changes).
+If you have any questions or concerns, please let us know in advance so we can address them accordingly.
+
+Best regards,
+
 services.AddSignalR(hubOptions =>
 {
     hubOptions.EnableDetailedErrors = true;
