@@ -1,5 +1,4 @@
-, Is there any breakfix code we need to icroporate or are we good to do a dry run and lock all changes and prepare for deployment tomorrow?
-
+Are there any breakfix codes we need to incorporate, or are we ready to proceed with a dry run, lock all changes, and prepare for deployment tomorrow?
 <ItemGroup>
   <PackageReference Include="ParentPackage" Version="x.y.z">
     <ExcludeAssets>MessagePack</ExcludeAssets>
