@@ -1,6 +1,4 @@
-. If we move all the 16 services to on prem servers, we will end up having 25 app pools (9 existing and 16 new). 
-We are going to add additional 4 CPU on all 12 servers, LOUAPPWPL862S01 to S06 and LOUAPPWPL882S01 to S06
-Summary of Changes Scheduled for Breakfix Window
+16 services will be migrated to on-prem servers, increasing the total number of app pools to 25 (9 existing and 16 new). Additionally, 4 CPUs will be added to each of the 12 servers, including LOUAPPWPL862S01 to S06 and LOUAPPWPL882S01 to S06, to support the enhanced workload.
 
 Hi Team,
 
