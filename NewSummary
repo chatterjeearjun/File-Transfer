@@ -1,5 +1,4 @@
-16 services will be migrated to on-prem servers, increasing the total number of app pools to 25 (9 existing and 16 new). Additionally, 4 CPUs will be added to each of the 12 servers, including LOUAPPWPL862S01 to S06 and LOUAPPWPL882S01 to S06, to support the enhanced workload.
-
+16 services will be migrated to on-prem servers, increasing the total number of app pools to 25 (9 existing and 16 new). As a measure to handle the increased workload, we are adding 4 CPUs to each of the 12 servers, including LOUAPPWPL862S01 to S06 and LOUAPPWPL882S01 to S06, to enhance performance and accommodate the changes. We are also collaborating with the SRE and load test teams to monitor the impact and ensure optimal performance.
 Hi Team,
 
 Here is a summary of the changes scheduled for deployment during the breakfix window. Please review the updates and let us know if you would like a knowledge transfer (KT) session or call to discuss them. We can arrange it as needed.
