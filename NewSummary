@@ -1,3 +1,16 @@
+Hi Dan,
+
+We successfully completed the production deployment last night during the breakfix window. Below are the items deployed during the release:
+
+Out of these four items, we encountered an issue requiring us to stop the on-prem service FaxDisposition. The initial investigation revealed that the FaxDisposition service is hosted as a listener service in Pioneer, with both an API and listener component. The application was deployed as an on-prem hosted application without a scheduled job to call the endpoint at regular intervals (currently set to every 5 minutes in Pioneer).
+
+During QA testing, we didn't need to create a job to complete the process, so this issue didn't surface earlier. We are currently working with the team to determine whether we need to set up a batch job on-prem or if the issue is related to another service, CommRec, which may require a manual restart post-deployment.
+
+Let me know if you need further details.
+
+Best regards,
+[Your Name]
+
 1. Identify the Primary Server
 
 Choose one server (e.g., Server01) to execute the task.
