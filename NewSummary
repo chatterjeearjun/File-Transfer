@@ -1,3 +1,65 @@
+1. Identify the Primary Server
+
+Choose one server (e.g., Server01) to execute the task.
+Ensure this server can directly access the API endpoint without relying on load balancing (e.g., using an internal IP or hostname).
+2. Create the Task
+
+Follow these steps to set up the task on the primary server:
+
+Open Task Scheduler:
+Go to Start > Administrative Tools > Task Scheduler.
+Create a New Task:
+Click Create Task from the right-hand Actions pane.
+Under the General tab:
+Set a name (e.g., API_POST_Task).
+Select Run whether user is logged on or not.
+Check Run with highest privileges.
+Under the Triggers tab:
+Click New and configure the trigger:
+Select Daily or Repeat task every X minutes (e.g., every 1 hour).
+Under the Actions tab:
+Click New and select Start a program.
+Enter the PowerShell script or batch file path (explained below).
+Test the Task:
+Run the task manually to ensure it's working as expected.
+3. Create the Script
+
+Option 1: PowerShell Script
+Create a PowerShell script (e.g., PostApi.ps1) for the HTTP POST request:
+
+# PostApi.ps1
+
+# API URL
+$url = "https://yourapiendpoint.com/api"
+
+# Request Headers
+$headers = @{
+    "Content-Type" = "application/json"
+}
+
+# Request Body
+$body = @{
+    "key1" = "value1"
+    "key2" = "value2"
+} | ConvertTo-Json -Depth 10
+
+# Send POST Request
+try {
+    $response = Invoke-RestMethod -Uri $url -Method Post -Headers $headers -Body $body
+    Write-Output "API Response: $($response | ConvertTo-Json)"
+} catch {
+    Write-Output "Error: $_"
+}
+Save this script to a location (e.g., C:\Scripts\PostApi.ps1).
+Option 2: Batch File
+Alternatively, create a batch file (e.g., PostApi.bat) with the following:
+
+curl -X POST https://yourapiendpoint.com/api ^
+-H "Content-Type: application/json" ^
+-d "{\"key1\":\"value1\",\"key2\":\"value2\"}"
+Save this batch file to a location (e.g., C:\Scripts\PostApi.bat).
+
+
 16 services will be migrated to on-prem servers, increasing the total number of app pools to 25 (9 existing and 16 new). As a measure to handle the increased workload, we are adding 4 CPUs to each of the 12 servers, including LOUAPPWPL862S01 to S06 and LOUAPPWPL882S01 to S06, to enhance performance and accommodate the changes. We are also collaborating with the SRE and load test teams to monitor the impact and ensure optimal performance.
 Hi Team,
 
