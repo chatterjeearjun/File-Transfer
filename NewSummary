@@ -1,3 +1,13 @@
+        public static readonly string CgxLoggingConnectionString = "CgxLoggingConnectionString";
+
+        public LogHelper(IConfiguration configuration, IDbExtensionsWrapper dbExtensionsWrapper)
+        {
+            var _configuration = configuration;
+            this.dbContainer = new DbContainer(_configuration.GetConnectionString(CgxLoggingConnectionString));
+            this.DbExtensionsWrapper = dbExtensionsWrapper;
+        }
+
+
 Please start pointing to the QA1 environment immediately. The Release 24.12 changes have been merged and deployed across QA2 (Test, INT, QA, QA2). I will follow up with another communication to the group, informing them that they can proceed with merging their 25.01 changes for the Clinical Auth Service and begin testing in the on-prem environment.
 
 Hi Rani,
