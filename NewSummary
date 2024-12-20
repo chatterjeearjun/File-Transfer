@@ -1,3 +1,5 @@
+Please start pointing to the QA1 environment immediately. The Release 24.12 changes have been merged and deployed across QA2 (Test, INT, QA, QA2). I will follow up with another communication to the group, informing them that they can proceed with merging their 25.01 changes for the Clinical Auth Service and begin testing in the on-prem environment.
+
 Hi Rani,
 
 We encountered an issue with the FaxDisposition last night. The FaxDisposition failed to MQ into prod QA.LB.SVC.ICR.DISP.PROD after the Pioneer service was stopped. However, when the SRE team manually triggered the GET URL, it successfully processed all messages in the queue. Based on this, they are looking for a scheduler to automate this process at regular intervals.
