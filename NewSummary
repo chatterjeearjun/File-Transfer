@@ -1,4 +1,83 @@
-        public static readonly string CgxLoggingConnectionString = "CgxLoggingConnectionString";
+ystem.NullReferenceException : Object reference not set to an instance of an object.
+
+  Stack Trace: 
+    ConfigurationExtensions.GetConnectionString(IConfiguration configuration, String name)
+    LogHelper.ctor(IConfiguration configuration, IDbExtensionsWrapper dbExtensionsWrapper) line 173
+    LogHelperTest.ctor() line 36
+    RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean wrapExceptions)
+
+
+namespace Components.BulkMessaging.XUnitTest.Controller
+{
+    using Cgx.Core.DataUtilities;
+    using .Cgx.Core.Models.Logging;
+    using .Clinical.Components.BulkMessaging.Helper;
+    using .Clinical.Components.BulkMessaging.Interfaces;
+    using .Clinical.Components.BulkMessaging.Wrappers.Interfaces;
+    using Microsoft.Extensions.Configuration;
+    using Moq;
+    using System;
+    using System.Data;
+    using System.Data.SqlClient;
+    using Xunit;
+
+    public class LogHelperTest
+    {
+        /// <summary>
+        /// The Logger.
+        /// </summary>
+        public readonly Mock<ILogHelper> mockLogger;
+        private readonly LogHelper logHelper;
+        /// <summary>
+        /// The db container.
+        /// </summary>
+        private readonly Mock<IDbContainer> mockDbContainer;
+        private Mock<IConfiguration> _mockConfiguration;
+        private Mock<IDbExtensionsWrapper> _mockDbExtensionsWrapper;
+
+        public LogHelperTest()
+        {
+            this.mockLogger = new Mock<ILogHelper>();
+            this.mockDbContainer = new Mock<IDbContainer>();
+            this._mockConfiguration = new Mock<IConfiguration>();
+            this._mockDbExtensionsWrapper = GetMockDbExtensionsWrapper();
+
+            logHelper = new LogHelper(_mockConfiguration.Object, _mockDbExtensionsWrapper.Object);
+        }
+       
+        [Fact]
+        public void LogException_Capture()
+        {
+            var logExceptionRequest = new LogExceptionRequest
+            {
+                ServiceCallIdentifier = new Guid().ToString(),
+                FunctionCallIdentifier = new Guid().ToString(),
+                ServiceMethodName = "TestServiceMethodName",
+                FunctionName = "TestFunctionName",
+                ServiceName = "TestServiceName",
+                ServerName = "TestServerName",
+                ErrorNumber = 234234,
+                ErrorMessage = "TestErrorMessage",
+                ErrorDateTime = DateTime.Now,
+                ProcessID = 000,
+                MemoryUsage = 200,
+                CPUUsage = 10,
+                ImpactedUser = "TestImpactedUser",
+                ImpactedWorkStation = "TestImpactedWorkStation",
+                StackTrace = "TestStackTrace",
+                UserId = "txt1235",
+                UserRole = "IT Super User"
+
+            };
+            this.mockLogger.Setup(m => m.LogException(It.IsAny<LogExceptionRequest>()));
+            logHelper.LogException(logExceptionRequest);            
+            Assert.NotNull(logExceptionRequest);            
+        }
+    }
+}
+
+
+public static readonly string CgxLoggingConnectionString = "CgxLoggingConnectionString";
 
         public LogHelper(IConfiguration configuration, IDbExtensionsWrapper dbExtensionsWrapper)
         {
@@ -280,7 +359,7 @@ def main_job():
                         df_m, d1, d2, dr_df, Status = main(msg, s)
                         df_m2 = disch_dt(d1, df_m)
                         header = {
-                            'X-Humana-Clinical-Api-Key': app.cgx_header_api_key,
+                            'X--Clinical-Api-Key': app.cgx_header_api_key,
                             'Content-Type': "application/json;charset=UTF-8",
                         }
                         df_cgx = df_m2.to_dict(orient='records')
@@ -653,7 +732,7 @@ with requests.Session() as s:
                 if auth_type == 'Medicare Inpatient Auth' and msg != None:
                     df_m, d1, d2, dr_df, Status = main(msg, s)
                     df_m2 = disch_dt(d1,df_m)
-                    header = {'X-Humana-Clinical-Api-Key':app.cgx_header_api_key,
+                    header = {'X--Clinical-Api-Key':app.cgx_header_api_key,
                        'Content-Type': "application/json;charset=UTF-8"}
                     df_cgx = df_m2.to_dict(orient='records')
                     if df_cgx is None or len(df_cgx) < 1:
@@ -715,7 +794,7 @@ Hi Dan,
 
 We investigated the care plan exhaust issue and identified a condition that reads the certificate from the Vault. However, the certificate name being pulled from the Vault was incorrect. We’ve updated it and deployed the fix to QA3. We'll schedule a round of regression testing, and the fix can be deployed during the earliest available window.
 
-<Exception><Type>System.Runtime.Serialization.SerializationException</Type><Message>Error in line 1 position 69. Expecting element 'ApiError' from namespace 'http://schemas.datacontract.org/2004/07/Humana.Clinical.Core.MVC'.. Encountered 'Element'  with name 'Envelope', namespace 'http://schemas.xmlsoap.org/soap/envelope/'.</Message><Source>System.Private.DataContractSerialization</Source><StackTrace>   at System.Runtime.Serialization.DataContractSerializer.InternalReadObject(XmlReaderDelegator xmlReader, Boolean verifyObjectName, DataContractResolver dataContractResolver)
+<Exception><Type>System.Runtime.Serialization.SerializationException</Type><Message>Error in line 1 position 69. Expecting element 'ApiError' from namespace 'http://schemas.datacontract.org/2004/07/.Clinical.Core.MVC'.. Encountered 'Element'  with name 'Envelope', namespace 'http://schemas.xmlsoap.org/soap/envelope/'.</Message><Source>System.Private.DataContractSerialization</Source><StackTrace>   at System.Runtime.Serialization.DataContractSerializer.InternalReadObject(XmlReaderDelegator xmlReader, Boolean verifyObjectName, DataContractResolver dataContractResolver)
    at System.Runtime.Serialization.XmlObjectSerializer.ReadObjectHandleExceptions(XmlReaderDelegator reader, Boolean verifyObjectName, DataContractResolver dataContractResolver)
    at System.Runtime.Serialization.XmlObjectSerializer.ReadObjectHandleExceptions(XmlReaderDelegator reader, Boolean verifyObjectName)
    at System.Runtime.Serialization.DataContractSerializer.ReadObject(XmlReader reader)
@@ -725,7 +804,7 @@ We investigated the care plan exhaust issue and identified a condition that read
 
 context.Response.Headers.Add(
     "Content-Security-Policy", 
-    "default-src 'self' https://*.humana.com  https://*.humana.local https://*.humana.com:* wss://*.humana.com;script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.humana.com https://cdn.walkme.com;" +
+    "default-src 'self' https://*..com  https://*..local https://*..com:* wss://*..com;script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*..com https://cdn.walkme.com;" +
     "style-src 'self' 'unsafe-inline' https:;img-src 'self' https: data:; " +
     "font-src 'self' https: data:;" +
     "object-src 'none';" +
@@ -737,7 +816,7 @@ context.Response.Headers.Add("X-Content-Type-Options", "nosniff");
 context.Response.Headers.Add("Pragma", "no-cache");
 context.Response.Headers.Add("Cache-Control", "no-cache");
 context.Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-context.Response.Headers.Add("Access-Control-Allow-Headers", "content-type, origin, accept,x-humana-clinical-api-key,authorization, Cache-Control, Pragma");
+context.Response.Headers.Add("Access-Control-Allow-Headers", "content-type, origin, accept,x--clinical-api-key,authorization, Cache-Control, Pragma");
 
 We will continue monitoring the performance of the on-prem services for a few days.
 Completion of Milestone 1 Service Migration
@@ -795,17 +874,17 @@ Hi Shivasankar, all the migration changes are now deployed in QA3 and toggles ar
 
 <PackageReference Include="System.IO.Packaging" Version="4.7.0" ExcludeAssets="all" />
 
-2024-11-18T16:03:26.6988292Z   GET https://humana.jfrog.io/artifactory/api/nuget/v3/cgx-nuget-virtual/registration-semver2/Download/system.security.cryptography.cng/4.5.0
-2024-11-18T16:03:26.7006785Z   OK https://humana.jfrog.io/artifactory/api/nuget/v3/cgx-nuget-virtual/registration-semver2/Download/system.security.principal.windows/4.5.0 125ms
-2024-11-18T16:03:26.7668496Z   OK https://humana.jfrog.io/artifactory/api/nuget/v3/cgx-nuget-virtual/registration-semver2/Download/system.security.cryptography.cng/4.7.0 88ms
-2024-11-18T16:03:26.7949050Z   OK https://humana.jfrog.io/artifactory/api/nuget/v3/cgx-nuget-virtual/registration-semver2/Download/microsoft.netcore.dotnetapphost/2.0.7 129ms
-2024-11-18T16:03:26.8225128Z   OK https://humana.jfrog.io/artifactory/api/nuget/v3/cgx-nuget-virtual/registration-semver2/Download/system.security.cryptography.cng/4.5.0 123ms
+2024-11-18T16:03:26.6988292Z   GET https://.jfrog.io/artifactory/api/nuget/v3/cgx-nuget-virtual/registration-semver2/Download/system.security.cryptography.cng/4.5.0
+2024-11-18T16:03:26.7006785Z   OK https://.jfrog.io/artifactory/api/nuget/v3/cgx-nuget-virtual/registration-semver2/Download/system.security.principal.windows/4.5.0 125ms
+2024-11-18T16:03:26.7668496Z   OK https://.jfrog.io/artifactory/api/nuget/v3/cgx-nuget-virtual/registration-semver2/Download/system.security.cryptography.cng/4.7.0 88ms
+2024-11-18T16:03:26.7949050Z   OK https://.jfrog.io/artifactory/api/nuget/v3/cgx-nuget-virtual/registration-semver2/Download/microsoft.netcore.dotnetapphost/2.0.7 129ms
+2024-11-18T16:03:26.8225128Z   OK https://.jfrog.io/artifactory/api/nuget/v3/cgx-nuget-virtual/registration-semver2/Download/system.security.cryptography.cng/4.5.0 123ms
 2024-11-18T16:03:26.8679778Z Resolving conflicts for net6.0...
 2024-11-18T16:03:26.8919636Z Checking compatibility of packages on .NETCoreApp,Version=v2.2.
 2024-11-18T16:03:26.9057090Z All packages and projects are compatible with .NETCoreApp,Version=v2.2.
 2024-11-18T16:03:26.9167558Z Value cannot be null.
 2024-11-18T16:03:26.9167917Z Parameter name: path
-2024-11-18T16:03:26.9174564Z   OK https://humana.jfrog.io/artifactory/api/nuget/v3/cgx-nuget-virtual/registration-semver2/Download/system.io.packaging/4.7.0 256ms
+2024-11-18T16:03:26.9174564Z   OK https://.jfrog.io/artifactory/api/nuget/v3/cgx-nuget-virtual/registration-semver2/Download/system.io.packaging/4.7.0 256ms
 2024-11-18T16:03:26.9324438Z System.ArgumentNullException: Value cannot be null.
 2024-11-18T16:03:26.9324849Z Parameter name: path
 2024-11-18T16:03:26.9325208Z    at System.IO.Path.GetFullPathInternal(String path)
@@ -1099,7 +1178,7 @@ To answer your question, both are legacy and no longer required.
 Slide 1: Hurdles for Pioneer Migration (Milestone 2 & 3)
 Toggle Key Features Update
 
-Excluding Humana.Clinical.Cgx.AuthUpdateUtility, other Toggle Key features removed from Milestones 2 and 3.
+Excluding .Clinical.Cgx.AuthUpdateUtility, other Toggle Key features removed from Milestones 2 and 3.
 Streamlined as config-only updates, reducing team overhead and accelerating the timeline.
 Single Branch Deployment
 
@@ -1129,7 +1208,7 @@ Traffic Results and Benchmarking
 
 Collect necessary information to traffic and compare results, enabling accurate benchmarking post-migration.
 
-Removing Toggle Key features from milestone 2 and 3 except for Humana.Clinical.Cgx.AuthUpdateUtility, which consumes ClinicalAuthorization
+Removing Toggle Key features from milestone 2 and 3 except for .Clinical.Cgx.AuthUpdateUtility, which consumes ClinicalAuthorization
 Single branch deployment going forward, if any application team wants to integrate our changes it's their responsibility to merge from default branch as this is a platform level changes.
 Little to no support of roll back for the upcoming milestones not much option to run the old and new systems in parallel to ensure stability as the timeline is critical so any issues occurs we need to resolve it. 
 Difficulty in maintaining stakeholders about migration process, risk and timelines
