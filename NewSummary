@@ -1,3 +1,9 @@
+Hi Rani,
+
+We encountered an issue with the FaxDisposition last night. The FaxDisposition failed to MQ into prod QA.LB.SVC.ICR.DISP.PROD after the Pioneer service was stopped. However, when the SRE team manually triggered the GET URL, it successfully processed all messages in the queue. Based on this, they are looking for a scheduler to automate this process at regular intervals.
+
+I’m curious to know, during our testing in QA2, did we manually trigger the endpoint to process the queue, or was it already configured in some way, requiring only a restart of the comrec service? Could you please confirm?
+
 Hi Dan,
 
 We successfully completed the production deployment last night during the breakfix window. Below are the items deployed during the release:
