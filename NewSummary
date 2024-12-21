@@ -1,14 +1,28 @@
- Message: 
-   System.NotSupportedException : Unsupported expression: config => config.GetConnectionString("CgxLoggingConnectionString")
-   Extension methods (here: ConfigurationExtensions.GetConnectionString) may not be used in setup / verification expressions.
+public LogHelper(IConfiguration configuration, IDbExtensionsWrapper dbExtensionsWrapper)
+{
+    var _configuration = configuration;
+    var connectionString = _configuration["ConnectionStrings:CgxLoggingConnectionString"];
 
- Stack Trace: 
-   Guard.IsOverridable(MethodInfo method, Expression expression) line 87
-   InvocationShape.ctor(LambdaExpression expression, MethodInfo method, IReadOnlyList`1 arguments, Boolean exactGenericTypeArguments, Boolean skipMatcherInitialization, Boolean allowNonOverridable) line 84
-   ExpressionExtensions.<Split>g__Split|5_0(Expression e, Expression& r, InvocationShape& p, Boolean assignment, Boolean allowNonOverridableLastProperty) line 235
-   ExpressionExtensions.Split(LambdaExpression expression, Boolean allowNonOverridableLastProperty) line 149
-   Mock.SetupRecursive[TSetup](Mock mock, LambdaExpression expression, Func`4 setupLast, Boolean allowNonOverridableLastProperty) line 601
-   Mock.Setup(Mock mock, LambdaExpression expression, Condition condition) line 505
-   Mock`1.Setup[TResult](Expression`1 expression) line 454
-   LogHelperTest.ctor() line 36
-   RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean wrapExceptions)
+    if (string.IsNullOrEmpty(connectionString))
+    {
+        throw new ArgumentException($"Connection string 'CgxLoggingConnectionString' is missing or null.");
+    }
+
+    this.dbContainer = new DbContainer(connectionString);
+    this.DbExtensionsWrapper = dbExtensionsWrapper;
+}
+
+public LogHelperTest()
+{
+    this.mockLogger = new Mock<ILogHelper>();
+    this.mockDbContainer = new Mock<IDbContainer>();
+    this._mockConfiguration = new Mock<IConfiguration>();
+    this._mockDbExtensionsWrapper = GetMockDbExtensionsWrapper();
+
+    // Setup mock configuration to return a valid connection string
+    _mockConfiguration
+        .Setup(config => config["ConnectionStrings:CgxLoggingConnectionString"])
+        .Returns("MockDatabaseConnectionString");
+
+    logHelper = new LogHelper(_mockConfiguration.Object, _mockDbExtensionsWrapper.Object);
+}
