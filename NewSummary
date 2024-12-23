@@ -1,1 +1,12 @@
 
+Subject: Update on Release 24.12 Changes and On-Prem Deployment
+
+Hi Team,
+
+A quick update: the latest changes from Release 24.12 have been merged into our branch (ClinicalAuthorization_OnPrem_Pioneer_Migration2) for the ClinicalAuthorization Service. The updated build has been successfully deployed across all lower environments, including Test, INT, QA, QA2, and QAStress.
+
+I kindly request the team to merge their code changes for Release 25.01 into our branch. Going forward, please deploy the changes in the on-prem environment and continue validation there.
+
+For your reference, here is the link to the On-Prem Release pipeline:
+
+Thanks,
