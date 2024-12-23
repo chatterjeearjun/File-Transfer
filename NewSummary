@@ -1,3 +1,31 @@
+Subject: SIT Regression Scope Finalization for FLD on 01/08/2025
+
+Hi Team,
+
+I’m scheduling this meeting to review and finalize the SIT regression scope for the FLD scheduled on 01/08/2025. During the call tomorrow, we will cover the following flows/functionalities. Please feel free to share this invite with additional relevant team members to ensure their alignment for the FLD.
+
+Additionally, you’re welcome to add or update the scope items as needed. We may not have all the updated details about the impacted areas for the release, so please feel free to enhance the descriptions or suggest changes where necessary.
+
+Scope of Discussion:
+
+Letters:
+
+Rgx.ACE.Letters
+External:
+
+RGX.IIB.Environments
+Rgx.ACE.UMRules - Auth Inquiry
+Clinical Authorization:
+
+Humana.Clinical.CgX20.Svc - Auth Submission with Clinical Authorization void and Rebuild
+Rgx.ACE.UMRules - Auth Validation CDR
+RGX.AuthQNRWrapperService
+Regression Start Date in QA2 Environment: 12/27 - 12/30
+
+Looking forward to your inputs and participation.
+
+Best regards,
+
 Letters - Rgx.ACE.Letters
 External - RGX.IIB.Environments
 External - Rgx.ACE.UMRules - Auth Inquiry
