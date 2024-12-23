@@ -1,3 +1,11 @@
+Letters - Rgx.ACE.Letters
+External - RGX.IIB.Environments
+External - Rgx.ACE.UMRules - Auth Inquiry
+
+ClinicalAuthorization - Humana.Clinical.CgX20.Svc - Auth Submission with Clinical Authorization void and Rebuild
+ClinicalAuthorization - Rgx.ACE.UMRules - Auth Validation CDR
+ClinicalAuthorization - RGX.AUthQNRWrapperService
+
 public LogHelper(IConfiguration configuration, IDbExtensionsWrapper dbExtensionsWrapper)
 {
     var _configuration = configuration;
