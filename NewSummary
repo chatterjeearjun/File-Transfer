@@ -1,3 +1,15 @@
+ Validation and Review for SQLUtility & Bulk Messaging Service Migrations
+
+Hi Team,
+
+For Milestone 3, we identified two services—SQLUtility and Bulk Messaging—that are currently used internally. We plan to migrate and deploy these low-utilized resources to production on 12/27, ahead of the AEP freeze window.
+
+We’ve completed API validation by comparing results between On-Prem and Pioneer, and no adverse outcomes were observed. However, since the Bulk Messaging service is used by the SRE team, we kindly request your validation for this service. The On-Prem URL is provided below for reference.
+
+Additionally, the pull requests for the migrations of both services are attached. Please review them and let us know if you have any concerns.
+
+Thank you!
+
 
 Subject: Update on Release 24.12 Changes and On-Prem Deployment
 
